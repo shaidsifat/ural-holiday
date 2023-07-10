@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: django-simple-coupons
+Version: 0.5
+Summary: A Django app that makes the use of coupons a simple task!
+Home-page: https://github.com/Wolfterro/django-simple-coupons
+Author: Wolfgang Almeida
+Author-email: wolfgang.almeida@yahoo.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Description-Content-Type: text/markdown
+
+# django-simple-coupons
+##  A Django app that makes the use of coupons a simple task!
+
+![PyPI v0.5](https://img.shields.io/badge/PyPI-v0.5-blue.svg)
+![MIT License](https://img.shields.io/badge/License-MIT-lightgray.svg)
+![Docs](https://img.shields.io/badge/docs-meh-orange.svg)
+
+django-simple-coupons is a simple Django app to create and use promotional coupons in your website.
+
+### Downloading
+
+django-simple-coupons is available on The Python Package Index (PyPI). You can simply use ***pip*** to install it:
+
+```bash
+$ pip install django-simple-coupons
+```
+
+### Installing
+
+1 - Add ```django_simple_coupons``` inside INSTALLED_APPS in settings.py:
+
+```python
+INSTALLED_APPS = [
+        ...
+        'django_simple_coupons',
+]
+```
+
+2 - (Optional) If you want to use more than 12 chars (default) for your coupon code, add ```DSC_COUPON_CODE_LENGTH``` variable in settings.py:
+
+```python
+DSC_COUPON_CODE_LENGTH = 16
+```
+
+3 - Run the migrations:
+
+```bash
+$ python manage.py makemigrations
+$ python manage.py migrate
+```
+
+And that's it! django-simple-coupons should appear in your admin as ```Simple Coupons```.
+
+### Changelog
+
+***[https://github.com/Wolfterro/django-simple-coupons/blob/master/CHANGELOG.txt](https://github.com/Wolfterro/django-simple-coupons/blob/master/CHANGELOG.txt)***
+
+### Documentation
+
+***[https://github.com/Wolfterro/django-simple-coupons/blob/master/docs/README.md](https://github.com/Wolfterro/django-simple-coupons/blob/master/docs/README.md)***
+
+

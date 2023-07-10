@@ -1,0 +1,87 @@
+version: "3.7"
+
+services:
+    django_backend:
+        build:
+            context: ../
+            dockerfile: ./deploy/Dockerfile
+        container_name: booking_app_backend
+        command: bash -c "umask 0000 && apt-get update && python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+        restart: always
+        volumes:
+            - ../booking_app:/booking_app_project
+            - ../booking_app/static:/booking_app_project/booking_app/static
+        depends_on:
+            - db_server
+        ports:
+            - "8000:8000"
+        working_dir: /booking_app_project
+        environment:
+            PYTHONUNBUFFERED: 1
+            PROJECT_ENVIRONMENT: ${PROJECT_ENVIRONMENT}
+            SECRET_KEY: ${SECRET_KEY}
+            AMADEUS_API_KEY: ${AMADEUS_API_KEY}
+            AMADEUS_API_SECRET: ${AMADEUS_API_SECRET}
+            AMADEUS_HOSTNAME: ${AMADEUS_HOSTNAME}
+            STRIPE_PUBLISHABLE_KEY: ${STRIPE_PUBLISHABLE_KEY}
+            STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY}
+            SENDGRID_API_KEY: ${SENDGRID_API_KEY}
+            DB_HOST: db_server
+            DB_NAME: ${DB_NAME}
+            DB_USER: ${DB_USER}
+            DB_PASSWORD: ${DB_PASSWORD}
+            SITE_ID: ${SITE_ID}
+            TWILIO_VERIFY_SERVICE_SID: ${TWILIO_VERIFY_SERVICE_SID}
+            TWILIO_ACCOUNT_SID: ${TWILIO_ACCOUNT_SID}
+            TWILIO_AUTH_TOKEN: ${TWILIO_AUTH_TOKEN}
+
+
+    django_backend_uk:
+        build:
+            context: ../
+            dockerfile: ./deploy/Dockerfile
+        container_name: booking_app_backend_uk
+        command: bash -c "umask 0000 && apt-get update && python manage.py migrate && python manage.py runserver 0.0.0.0:9000"
+        restart: always
+        volumes:
+            - ../booking_app:/booking_app_project_uk
+            - ../booking_app/static:/booking_app_project_uk/booking_app/static
+        depends_on:
+            - db_server
+        ports:
+            - "9000:9000"
+        working_dir: /booking_app_project_uk
+        environment:
+            PYTHONUNBUFFERED: 1
+            PROJECT_ENVIRONMENT: ${PROJECT_ENVIRONMENT_uk}
+            SECRET_KEY: ${SECRET_KEY_uk}
+            AMADEUS_API_KEY: ${AMADEUS_API_KEY_uk}
+            AMADEUS_API_SECRET: ${AMADEUS_API_SECRET_uk}
+            AMADEUS_HOSTNAME: ${AMADEUS_HOSTNAME_uk}
+            STRIPE_PUBLISHABLE_KEY: ${STRIPE_PUBLISHABLE_KEY_uk}
+            STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY_uk}
+            SENDGRID_API_KEY: ${SENDGRID_API_KEY_uk}
+            DB_HOST: db_server
+            DB_NAME: ${DB_NAME_uk}
+            DB_USER: ${DB_USER_uk}
+            DB_PASSWORD: ${DB_PASSWORD_uk}
+            SITE_ID: ${SITE_ID_uk}
+            TWILIO_VERIFY_SERVICE_SID: ${TWILIO_VERIFY_SERVICE_SID_uk}
+            TWILIO_ACCOUNT_SID: ${TWILIO_ACCOUNT_SID_uk}
+            TWILIO_AUTH_TOKEN: ${TWILIO_AUTH_TOKEN_uk}
+
+
+
+    db_server:
+        container_name: db_server
+        image: mysql:latest
+        restart: always
+        volumes:
+            - ${DB_DATA_VOLUME}:/var/lib/mysql
+        ports:
+            - ${DB_PORT}:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${DB_NAME}
+            MYSQL_USER: ${DB_USER}
+            MYSQL_PASSWORD: ${DB_PASSWORD}
