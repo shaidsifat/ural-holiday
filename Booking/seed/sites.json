@@ -1,0 +1,18 @@
+[
+    {
+        "model": "sites.Site",
+        "fields": {
+            "id": 2,
+            "domain": "www.uralholidays.com",
+            "name": "uralholidays.com"
+        }
+    },
+    {
+        "model": "sites.Site",
+        "fields": {
+            "id": 3,
+            "domain": "www.uralholidays.co.uk",
+            "name": "uralholidays.co.uk"
+        }
+    }
+]

@@ -1,0 +1,406 @@
+{% extends "layouts/base-new.html" %}
+{% load static %}
+
+{% block style %}
+  <link href="{% static 'css/home.css' %}" rel="stylesheet"/>
+{% endblock style %}
+
+{% block header %}
+  {% include './home-header.html' %}
+{% endblock header %}
+
+{% block content %}
+  <div id="notification">
+    <div class="container h-100">
+      <div class="notification-inner h-100">
+        <i class="fa-solid fa-circle-exclamation"></i>
+        <p>Our website is currently in beta version mode. We are updating some new features.</p>
+        <i class="fa-solid fa-xmark" id="close-notice-btn"></i>
+      </div>
+    </div>
+  </div>
+
+  <!--Travel saftey section-->
+  <div class="travel-saftey">
+    <div class="container">
+      <div class="travel-saftey-content">
+        <h1>Travel safely with us</h1>
+        <p>As one of the largest and most experienced global airlines throughout the COVID-19 crisis, you can rely
+          on us to take you
+          on your next journey safely. </p>
+      </div>
+      <div class="saftey-services">
+        <div class="saftey-services-box">
+          <img src="{% static 'images/safteymeasure.png' %}" alt="safety-measure">
+          <a href="#">
+            <div class="saftey-below-img">
+              <div class="saftey-below-img-inner">
+                <p>Safety Measures</p>
+                <img src="{% static 'images/Vectorarrow.png' %}">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="saftey-services-box">
+          <img src="{% static 'images/plantrip.png' %}" alt="plan-trip">
+          <a href="#">
+            <div class="saftey-below-img">
+              <div class="saftey-below-img-inner">
+                <p>Plan Your Next Trip</p>
+                <img src="{% static 'images/Vectorarrow.png' %}">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="saftey-services-box">
+          <img src="{% static 'images/travelnew.png' %}" alt="travel">
+          <a href="#">
+            <div class="saftey-below-img">
+              <div class="saftey-below-img-inner">
+                <p>Travel and entry requirements</p>
+                <img src="{% static 'images/Vectorarrow.png' %}">
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Travel saftey section end-->
+
+  <!--Find great fare-->
+  <div class="blogs-great-fare">
+    <div class="container">
+      <div class="blogs-great-fare-heading"><h1>Find great fares</h1></div>
+      <div class="find-fares">
+        <form action="">
+          <div class="input-group">
+            <label for="text" id="findcity">From</label>
+            <input type="text" id="findcity" class="form-control" placeholder="Cairo">
+            <img src="{% static 'images/input-logo.png' %}" alt="img" class="img-fluid">
+          </div>
+        </form>
+      </div>
+      <div class="blogs-fare-section">
+        <div class="blogs-inner-section">
+          <div class="blogs-inner-section-content">
+            <img src="{% static 'images/Rectangle-milanitaly.jpg' %}" alt="">
+            <div class="blogs-inner-section-content-above-img">
+              <div class="blogs-content-above-inner">
+                <h4>Milan , Italy</h4>
+                <p>30 Jan 2022 - 04 Feb 2022 </p>
+                <span>Economy from $ 774*</span>
+              </div>
+              <div class="blogs-content-above-inner">
+                <div class="blogs-button">
+                  <a href="#">Discover</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-inner-section ">
+          <div class="inner-blogs-section">
+            <div class="inner-blog-section-content">
+              <img src="{% static 'images/Rectangle-paris.jpg' %}">
+              <div class="blogs-content-above-inner-second">
+                <h4>Paris, France </h4>
+                <p>30 Jan 2022 - 04 Feb 2022</p>
+                <span>Economy from $ 774*</span>
+              </div>
+            </div>
+            <div class="inner-blog-section-content">
+              <img src="{% static 'images/Rectangle-russia.jpg' %}" alt="img">
+              <div class="blogs-content-above-inner-second">
+                <h4>Moskva, Russia </h4>
+                <p>30 Jan 2022 - 04 Feb 2022</p>
+                <span> Economy from $ 774*</span>
+              </div>
+            </div>
+          </div>
+          <div class="inner-blogs-section">
+            <div class="inner-blog-section-content">
+              <img src="{% static 'images/Rectangle-marga.jpg' %}">
+              <div class="blogs-content-above-inner-second">
+                <h4>Marga, Indonesia </h4>
+                <p>30 Jan 2022 - 04 Feb 2022</p>
+                <span>Economy from $ 774*</span>
+              </div>
+            </div>
+            <div class="inner-blog-section-content">
+              <img src="{% static 'images/Rectangle-egypt.jpg' %}">
+              <div class="blogs-content-above-inner-second">
+                <h4>Cairo, Egypt </h4>
+                <p>30 Jan 2022 - 04 Feb 2022</p>
+                <span> Economy from $ 774*</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="blogs-fare-section-bottom">
+        <div class="blogs-inner-section">
+          <div class="blogs-inner-section-content">
+            <img src="{% static 'images/Rectangle-Maldives.jpg' %}" alt="">
+            <div class="blogs-inner-section-content-above-img">
+              <div class="blogs-content-above-inner">
+                <h4>Fuvahmulah, Maldives </h4>
+                <p>30 Jan 2022 - 04 Feb 2022 </p>
+                <span>Economy from $ 774*</span>
+              </div>
+              <div class="blogs-content-above-inner">
+                <div class="blogs-button">
+                  <a href="#">Discover</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="blogs-inner-section">
+          <div class="blogs-inner-section-content">
+            <img src="{% static 'images/Rectangle-Greece.jpg' %}" alt="">
+            <div class="blogs-inner-section-content-above-img">
+              <div class="blogs-content-above-inner">
+                <h4>Thera, Greece</h4>
+                <p>30 Jan 2022 - 04 Feb 2022 </p>
+                <span>Economy from $ 774*</span>
+              </div>
+              <div class="blogs-content-above-inner">
+                <div class="blogs-button">
+                  <a href="#">Discover</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-view-more text-center">
+        <a href="javascript:void(0);">View More Fares</a>
+      </div>
+    </div>
+  </div>
+  <!--Find great fare end-->
+
+  <section class="wraper-section">
+    <div class="row g-0">
+      <div class="col-md-12 px-0">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home"
+                    type="button" role="tab" aria-controls="home" aria-selected="true">Guaranteed Flexibility
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile"
+                    type="button" role="tab" aria-controls="profile" aria-selected="false">Mobile App
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                    type="button" role="tab" aria-controls="contact" aria-selected="false">Privilege Club
+            </button>
+          </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+          <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+            <div class="wrappery-inner-section">
+              <div class="wrappery-banner-area">
+                <div class="wrappery-banner-text-area">
+                  <div class="container">
+                    <div class="wrappery-banner-inner">
+                      <div class="wrappery-banner-text">
+                        <h1>Guaranteed Flexibility </h1>
+                        <p>We are extending the validity of our guaranteed <br>
+                          flexibility policy, applicable for travel up to 31 May, 2022.
+
+                        </p>
+                        <div class="wrappery-banner-button">
+                          <a href="#">Learn More</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img src="{% static 'images/flexiblity.jpg' %}"/>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="wrappery-inner-section">
+              <div class="wrappery-banner-area">
+                <div class="wrappery-banner-text-area">
+                  <div class="container">
+                    <div class="wrappery-banner-inner">
+                      <div class="wrappery-banner-text">
+                        <h1>Mobile App </h1>
+                        <p>We are extending the validity of our guaranteed <br>
+                          flexibility policy, applicable for travel up to 31 May, 2022.
+                        </p>
+                        <div class="wrappery-banner-button">
+                          <a href="#">Learn More</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img src="{% static 'images/flexiblity.jpg' %}"/>
+              </div>
+            </div>
+          </div>
+          <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+            <div class="wrappery-inner-section">
+              <div class="wrappery-banner-area">
+                <div class="wrappery-banner-text-area">
+                  <div class="container">
+                    <div class="wrappery-banner-inner">
+                      <div class="wrappery-banner-text">
+                        <h1>Privilege Club </h1>
+                        <p>We are extending the validity of our guaranteed <br>
+                          flexibility policy, applicable for travel up to 31 May, 2022.
+
+                        </p>
+                        <div class="wrappery-banner-button">
+                          <a href="#">Learn More</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <img src="{% static 'images/flexiblity.jpg' %}"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!---Bottom blog section-->
+
+  <!--wraper-place-together-->
+  <section class="wraper-place-together">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="title-place text-center">
+            <h2>Let's go places together</h2>
+            <p>Discover the latest offers and news and start planning your next trip with us. </p>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-6">
+          <div class="place-box-big">
+            <div class="inner-box">
+              <img src="{% static 'images/img01.jpg' %}" alt="img">
+              <div class="content-place-together">
+                <h4>Lorem ipsum is placeholder text commonly used in the graphic</h4>
+                <p>Lorem ipsum is placeholder text commonly used in the graphicLorem ipsum is placeholder
+                  text commonly used in the graphicLorem</p>
+                <a href="javascript:void(0);">Learn More</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-6">
+          <div class="place-box-list">
+            <div class="row-list">
+              <div class="column-flex">
+                <img src="{% static 'images/img02.jpg' %}" alt="img">
+                <div class="content-place-list">
+                  <h4>Lorem ipsum is placeholder text commonly used in the graphic</h4>
+                  <p>Lorem ipsum is placeholder text commonly used.Lorem ipsum is placeholder text
+                    commonly </p>
+                  <a href="javascript:void(0);">Learn More</a>
+                </div>
+              </div>
+            </div>
+            <div class="row-list">
+              <div class="column-flex">
+                <img src="{% static 'images/img02.jpg' %}" alt="img">
+                <div class="content-place-list">
+                  <h4>Lorem ipsum is placeholder text commonly used in the graphic</h4>
+                  <p>Lorem ipsum is placeholder text commonly used.Lorem ipsum is placeholder text
+                    commonly </p>
+                  <a href="javascript:void(0);">Learn More</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--wraper-place-together end-->
+
+  <!--Travel saftey section-->
+  <div class="travel-saftey">
+    <div class="container">
+      <div class="travel-saftey-content">
+        <h1>Complement your journey</h1>
+        <p>Upgrade or save up to 20% when you purchase extra baggage, lounge access or meet and assist services
+          online to
+          make your journey even more memorable. </p>
+      </div>
+      <div class="saftey-services">
+        <div class="saftey-services-box">
+          <img src="{% static 'images/safteymeasure.png' %}" alt="safteymeasure">
+          <a href="#">
+            <div class="saftey-below-img">
+              <div class="saftey-below-img-inner">
+                <p>Safety Measures</p>
+                <img src="{% static 'images/Vectorarrow.png' %}">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="saftey-services-box">
+          <img src="{% static 'images/plantrip.png' %}" alt="plantrip">
+          <a href="#">
+            <div class="saftey-below-img">
+              <div class="saftey-below-img-inner">
+                <p>Plan Your Next Trip</p>
+                <img src="{% static 'images/Vectorarrow.png' %}">
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="saftey-services-box">
+          <img src="{% static 'images/GuaranteedFlexibility.jpg' %}" alt="Flexibility">
+          <a href="#">
+            <div class="saftey-below-img">
+              <div class="saftey-below-img-inner">
+                <p>Guaranteed Flexibility</p>
+                <img src="{% static 'images/Vectorarrow.png' %}">
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--Travel saftey section end-->
+
+  <section class="wraper-subscribe">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="subs-main">
+            <h2>Subscribe <br> to our special offers</h2>
+            <p>Save with our latest fares and offers. <span>Unsubscribe or change your preferences</span></p>
+            <form action="">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Enter Your Email Address">
+              </div>
+              <button class="btn-subscribe">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+{% endblock content %}
+
+{% block javascript %}
+  <script src="{% static 'js/home.js' %}"></script>
+  <script src="https://kit.fontawesome.com/0daefe054c.js" crossorigin="anonymous"></script>
+{% endblock javascript %}

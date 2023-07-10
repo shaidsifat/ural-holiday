@@ -1,0 +1,66 @@
+{% load static %}
+
+<footer class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="footertour">
+                    <h4>Ural Tours And Travels</h4>
+                    <p>Registered Address- {{ contact_address }}</p>
+                    <p><em>P:</em> 24/7 customer support: <a href="tel:{{ contact_phone }}">{{ contact_phone }}</a></p>
+                    <p><em>P:</em> <a href="mailto:{{ contact_email }}">{{ contact_email }}</a></p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="footer-nav">
+                    <h4>Customer support</h4>
+                    <ul>
+                        <li><a href="{% url 'fqa_page' %}">FAQ</a></li>
+                        <li><a href="{% url 'contact_page' %}">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="footer-nav">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="{% url 'about_us' %}">About Us</a></li>
+                        <li><a href="{% url 'privacy_policy' %}">Privacy Policy</a></li>
+                        <li><a href="{% url 'payment_policy' %}">Payment Policy</a></li>
+                        <li><a href="{% url 'cookie_policy' %}">Cookie Policy</a></li>
+                        <li><a href="{% url 'terms_conditions' %}">Terms & Conditions</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="footer-nav">
+                    <h4>Don’t miss our exclusive offers</h4>
+                    <form action="">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Enter your email here">
+                            <button type="submit" class="btn-sign">Signup</button>
+                        </div>
+                    </form>
+                    <div class="footer-brand">
+                        <a href="#" target="_blank"><img src="{% static 'images/download.png' %}" alt="logo"></a>
+                        <img src="{% static 'images/iata.png' %}" alt="icon">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="footer-bottom">
+                    <p class="coppyright">Copyright 2022 ural tours and travels. All rights reserved</p>
+                    <div class="paymentbox">
+                        <a href="#">
+                            <img
+                                src="{% static 'images/cc-badges-ppcmcvdam.png' %}"
+                                alt="payment icon"
+                                class="img-fluid"
+                            >
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

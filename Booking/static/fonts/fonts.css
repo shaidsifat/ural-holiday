@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'Jotia';
+    src: url('Jotia-Heavy.woff2') format('woff2'), url('Jotia-Heavy.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jotia';
+    src: url('Jotia-Bold.woff2') format('woff2'), url('Jotia-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jotia';
+    src: url('Jotia-Light.woff2') format('woff2'), url('Jotia-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jotia';
+    src: url('Jotia-Thin.woff2') format('woff2'), url('Jotia-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jotia';
+    src: url('Jotia-Regular.woff2') format('woff2'), url('Jotia-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Jotia';
+    src: url('Jotia-Medium.woff2') format('woff2'), url('Jotia-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}

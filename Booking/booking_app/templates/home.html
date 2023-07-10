@@ -1,0 +1,453 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block header %}
+  {% include "layouts/header.html" %}
+{% endblock header %}
+
+{% block head_style %}
+  <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}"/>
+{% endblock head_style %}
+
+{% block slider %}
+  <!--slider-->
+  <div class="slider" id="hero-gallery">
+    <div class="slider-content">
+      <div>
+        <h1>The World is Yours</h1>
+        <p>Signup to get Ural Holidays Promo Code <br>and Enjoy Upto 25% Discount</p>
+        <a href="{% url 'home_page' %}#main-search">Book now</a>
+      </div>
+    </div>
+  </div>
+  <!--//slider-->
+{% endblock slider %}
+
+{% block search_form %}
+  <div class="main-search">
+    <div class="wrap">
+      <div id="main-search">
+        <div class="row">
+          <!--column-->
+          <div class="column radios one-fourth">
+            <h5><span>01</span> What?</h5>
+            <div class="row">
+              <!-- <div class="f-item one-half">
+                  <input type="radio" name="radio" id="hotel" value="form1" />
+                  <label for="hotel">Hotel</label>
+              </div>
+              <div class="f-item one-half">
+                  <input type="radio" name="radio" id="self_catering" value="form2" />
+                  <label for="self_catering">Self Catering</label>
+              </div> -->
+              <div class="f-item one-half">
+                <input type="radio" name="radio" id="flight_one_way" value="form3"/>
+                <label for="flight_one_way">One Way</label>
+              </div>
+              <div class="f-item one-half">
+                <input type="radio" name="radio" id="flight_round_way" value="form5"/>
+                <label for="flight_round_way">Round Way</label>
+              </div>
+              <div class="f-item one-half">
+                <input type="radio" name="radio" id="flight_multi_way" value="form4"/>
+                <label for="flight_multi_way">Multi City</label>
+              </div>
+              <div class="f-item one-half">
+                <input type="radio" name="radio" id="my_trips" value="form6"/>
+                <label for="my_trips">My trips</label>
+              </div>
+            </div>
+          </div>
+          <!--column-->
+          <div class="three-fourth">
+            {% include 'air/search_form.html' %}
+          </div>
+          <div style="text-align: center;margin-bottom: -1px;">
+            <input type="button" value="Search Flights" class="gradient-button" id="submit_form"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock search_form %}
+
+{% block content %}
+  <!--main-->
+  <main class="main">
+    <div class="wrap">
+      <div class="row">
+        <div class="full-width">
+          <!--info boxes-->
+          <div class="boxes">
+            <div class="row">
+
+              <!--column-->
+              <article class="one-fourth">
+                <div>
+                  <h4>Passionate Service</h4>
+                  <p>Ural Holidays’s team will cater to your special requests. We offer expert and passionate advice for
+                    finding the right flights. </p>
+                </div>
+              </article>
+              <!--//column-->
+
+              <!--column-->
+              <article class="one-fourth">
+                <div>
+                  <h4>Best Price Guarantee</h4>
+                  <p>We offer the best flights at the best prices. If you find the same load on the same dates cheaper
+                    elsewhere, we will refund the difference. Guaranteed, and quickly. </p>
+                </div>
+              </article>
+              <!--//column-->
+
+              <!--column-->
+              <article class="one-fourth">
+                <div>
+                  <h4>Secure Booking</h4>
+                  <p>Ural Holidays reservation system is secure and your credit card and personal information is
+                    encrypted.We work to high standards and guarantee your privacy. </p>
+                </div>
+              </article>
+              <!--//column-->
+
+              <!--column-->
+              <article class="one-fourth">
+                <div>
+                  <h4>Any Questions?</h4>
+                  <p>Call us on <em>{{ contact_phone }}</em> for individual, tailored advice for your perfect stay or <a
+                      href="{% url 'contact_page' %}" title="Contact">send us a message</a> with your hotel booking
+                    query.</p>
+                </div>
+              </article>
+              <!--//column-->
+            </div>
+          </div>
+          <!--//info boxes-->
+
+        </div>
+      </div>
+    </div>
+  </main>
+  <!--//main-->
+{% endblock content %}
+
+{% block inline_javascript %}
+  <script>
+      (function ($) {
+
+          window.bookyourtravel.load_airports = function (elem) {
+              $(elem).autocomplete({
+                  source: "{% url 'airport_search'%}",
+                  minLength: 1,
+                  delay: 200,
+                  select: function (event, ui) {
+                      event.preventDefault();
+                      this.value = `${ui.item.iataCode}, ${ui.item.name}`;
+                  },
+              }).data("ui-autocomplete")._renderItem = function (ul, item) {
+                  return $("<li>")
+                      .attr("data-value", item.iataCode)
+                      .append(`<span>${item.name} [${item.iataCode}]</span><br><span style="padding:0; color:gray;"><small>${item.countryName}</small></span>`)
+                      .appendTo(ul);
+
+              };
+          }
+
+          window.bookyourtravel.add_city = function (elem) {
+              const next_index = parseInt($('#form4_where > div:last').data('index')) + 1;
+              $('#form4_where').append(`<div class="row" data-index="${next_index}" id="form4_new_code_${next_index}">
+                        <div class="f-item full-width">
+                            <label for="id_originLocationCode_${next_index}">Leaving from</label>
+                            <div class="airport-search">
+                                <input type="text" name="originLocationCode_${next_index}"
+                                placeholder="City, region, district or specific airport"
+                                maxlength="50" required="" id="id_originLocationCode_${next_index}" />
+                            </div>
+                        </div>
+                        <div class="f-item full-width">
+                            <label for="id_destinationLocationCode_${next_index}">Going to</label>
+                            <div class="airport-search">
+                                <input type="text"
+                                name="destinationLocationCode_${next_index}"
+                                placeholder="City, region, district or specific airport"
+                                maxlength="50" required=""
+                                id="id_destinationLocationCode_${next_index}" >
+                            </div>
+                        </div>
+                    </div>`);
+              window.bookyourtravel.load_airports(`#id_originLocationCode_${next_index}`);
+              window.bookyourtravel.load_airports(`#id_destinationLocationCode_${next_index}`);
+
+              $('#form4_when').append(`<div class="row" id="form4_new_date_${next_index}">
+                        <div class="f-item full-width datepicker">
+                            <label for="id_departureDate_${next_index}">Departing on</label>
+                            <div class="row">
+                                <div class="f-item full-width">
+                                    <div class="datepicker-wrap">
+                                        <input type="text" name="departureDate_${next_index}" id="id_departureDate_${next_index}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`);
+              window.bookyourtravel.load_datepicker(`#id_departureDate_${next_index}`)
+
+              $(elem).remove();
+
+              $('#form4_who').append(`<div class="row" id="form4_new_action_${next_index}">
+                        <div class="f-item full-width form-action">
+                            <input onclick="window.bookyourtravel.remove_city(this)" type="button" value="Remove this city" data-index="${next_index}"/>
+                            <input style="margin-top:10px" type="button" value="Add Another City" onclick="window.bookyourtravel.add_city(this)" />
+                        </div>
+                    </div>`);
+          }
+
+          window.bookyourtravel.remove_city = function (elem) {
+              const remove_index = $(elem).data('index');
+              const last_index = $('#form4_where > div:last').data('index');
+              $(`#form4_new_code_${remove_index}`).remove();
+              $(`#form4_new_date_${remove_index}`).remove();
+              $(`#form4_new_action_${remove_index}`).remove();
+              if ($('#form4_where > div').length === 2) {
+                  $('#form_action_2').append(`<input style="margin-top:10px" type="button" value="Add Another City" onclick="window.bookyourtravel.add_city(this)" />`)
+              }
+              if (remove_index === last_index) {
+                  const current_last_index = $('#form4_where > div:last').data('index');
+                  $(`#form4_new_action_${current_last_index} .form-action`).append(`<input style="margin-top:10px" type="button" value="Add Another City" onclick="window.bookyourtravel.add_city(this)" />`);
+              }
+          }
+
+          $(document).ready(function () {
+              //MAIN SEARCH
+              $('.main-search input[name=radio]').change(function () {
+                  var showForm = $(this).val();
+                  $('.form').hide();
+                  $("#" + showForm).show();
+              });
+              var active_radio = false;
+              $('.form').hide();
+              $('.main-search input[name=radio]').each(function () {
+                  var showForm = $(this).val();
+                  if ($(this).prop('checked')) {
+                      active_radio = true;
+                      $("#" + showForm).show();
+                      $(this).parent().addClass('checked');
+                  }
+              });
+              if (active_radio === false) {
+                  $('#form3').show();
+                  $('.f-item:nth-child(1)').addClass('active');
+                  $('.f-item:nth-child(1) span').addClass('checked');
+                  $('.f-item:nth-child(1) span input[name=radio]').addClass('checked').prop('checked', true);
+              }
+
+              // $('#hero-gallery').lightSlider({
+              // 	gallery:true,
+              // 	item:1,
+              // 	pager:false,
+              // 	gallery:false,
+              // 	slideMargin: 0,
+              // 	speed:1000,
+              // 	pause:1800000,
+              // 	mode: 'fade',
+              // 	auto:true,
+              // 	loop:true,
+              // 	onSliderLoad: function() {
+              // 		$('#hero-gallery').removeClass('cS-hidden');
+              // 	}
+              // });
+
+              //FLIGHT SEARCH FORM
+              $(".airport-search input").each(function () {
+                  window.bookyourtravel.load_airports(this);
+              });
+          });
+
+          function validate_flight_field(value, field, field_id, form_id) {
+              let error = true;
+              switch (field) {
+                  case "originLocationCode":
+                      if (value && value.length >= 3) {
+                          error = false;
+                          value = value.substring(0, 3);
+                      }
+                      break;
+                  case "destinationLocationCode":
+                      if (value && value.length >= 3) {
+                          error = false;
+                          value = value.substring(0, 3);
+                      }
+                      break;
+                  case "departureDate":
+                      try {
+                          var date = new Date(value).toISOString();
+                          if (date) {
+                              error = false;
+                              // value = date.split("T")[0];
+                              value = value.split("/");
+                              value = value[2] + "-" + value[0] + "-" + value[1]
+                          }
+                      } catch (e) {
+                      }
+                      break;
+                  case "returnDate":
+                      if (form_id === 'form5') {
+                          try {
+                              var date = new Date(value).toISOString();
+                              if (date) {
+                                  error = false;
+                                  // value = date.split("T")[0];
+                                  value = value.split("/");
+                                  value = value[2] + "-" + value[0] + "-" + value[1]
+                              }
+                          } catch (e) {
+                          }
+                      } else {
+                          error = false;
+                      }
+                      break;
+                  case "adults":
+                      if (value >= 1) {
+                          error = false;
+                      }
+                      break;
+                  case "children":
+                      error = false;
+                      break;
+                  case "infants":
+                      error = false;
+                      break;
+                  case "travelClass":
+                      error = false;
+                      break;
+                  case "order_id":
+                      if (value.length > 0) {
+                          error = false;
+                      }
+                      break;
+                  case "last_name":
+                      if (value.length > 0) {
+                          error = false;
+                      }
+                      break;
+              }
+              if (error) {
+                  $(field_id).css("border", "1px solid red")
+                  // $('#submit_form').prop('disabled', false);
+                  // $('#submit_form').val('Proceed To Results');
+                  throw new Error('Form Validation Error')
+              } else {
+                  $(field_id).css("border", "1px solid #ccc")
+                  return value;
+              }
+          }
+
+          $('#submit_form').on('click', function () {
+              // $(this).prop('disabled', true);
+              // $(this).val('Processing... To Results');
+              $('.main-search input[name=radio]').each(function () {
+                  if ($(this).prop("checked")) {
+                      var query_data = {};
+                      var post_data = {};
+                      let origin_code, destin_code, depart_date, return_date = null;
+
+                      switch ($(this).val()) {
+                          case "form3":
+                              // One Way
+                              origin_code = validate_flight_field($(`#id_originLocationCode`).val(), "originLocationCode", `#id_originLocationCode`, 'form3');
+                              destin_code = validate_flight_field($(`#id_destinationLocationCode`).val(), "destinationLocationCode", `#id_destinationLocationCode`, 'form3');
+                              depart_date = validate_flight_field($(`#id_departureDate`).val(), "departureDate", `#id_departureDate`, 'form3');
+                              query_data['trips'] = origin_code + ',' + destin_code + ',' + depart_date;
+                              query_data['adults'] = $(`#id_adults`).val();
+                              query_data['children'] = $(`#id_children`).val();
+                              query_data['infants'] = $(`#id_infants`).val();
+                              query_data['travelClass'] = $(`#id_travelClass`).val();
+                              break;
+                          case "form5":
+                              // Round Way
+                              origin_code = validate_flight_field($(`#id_originLocationCode_0`).val(), "originLocationCode", `#id_originLocationCode_0`, 'form5');
+                              destin_code = validate_flight_field($(`#id_destinationLocationCode_0`).val(), "destinationLocationCode", `#id_destinationLocationCode_0`, 'form5');
+                              depart_date = validate_flight_field($(`#id_departureDate_0`).val(), "departureDate", `#id_departureDate_0`, 'form5');
+                              return_date = validate_flight_field($(`#id_returnDate_0`).val(), "returnDate", `#id_returnDate_0`, 'form5');
+                              query_data['trips'] = origin_code + ',' + destin_code + ',' + depart_date + ',' + destin_code + ',' + origin_code + ',' + return_date;
+                              //query_data['trips'] = origin_code + ',' + destin_code + ',' + depart_date;
+                              query_data['returnDate'] = return_date;
+                              query_data['adults'] = $(`#id_adults_0`).val();
+                              query_data['children'] = $(`#id_children_0`).val();
+                              query_data['infants'] = $(`#id_infants_0`).val();
+                              query_data['travelClass'] = $(`#id_travelClass_0`).val();
+                              // for(let i in FIELDS_B){
+                              //     post_data[FIELDS_B[i]] = validate_flight_field($(`#id_${FIELDS_B[i]}_0`).val(), FIELDS_B[i], `#id_${FIELDS_B[i]}_0`, 'form5');
+                              // }
+                              break;
+                          case "form4":
+                              // Multi Way
+                              query_data['trips'] = '';
+                              $('#form4_where > div').each(function () {
+                                  let index = $(this).data('index');
+                                  let result = {}
+                                  origin_code = validate_flight_field($(`#id_originLocationCode_${index}`).val(), "originLocationCode", `#id_originLocationCode_${index}`, 'form4');
+                                  destin_code = validate_flight_field($(`#id_destinationLocationCode_${index}`).val(), "destinationLocationCode", `#id_destinationLocationCode_${index}`, 'form4');
+                                  depart_date = validate_flight_field($(`#id_departureDate_${index}`).val(), "departureDate", `#id_departureDate_${index}`, 'form4');
+                                  query_data['trips'] += origin_code + "," + destin_code + "," + depart_date + ",";
+                              })
+
+                              query_data['adults'] = $(`#id_adults_n`).val();
+                              query_data['children'] = $(`#id_children_n`).val();
+                              query_data['infants'] = $(`#id_infants_n`).val();
+                              query_data['travelClass'] = $(`#id_travelClass_n`).val();
+                              break;
+                          case "form6":
+                              post_data = {
+                                  "order_id": validate_flight_field($('#order_id').val(), "order_id", "#order_id", "form6"),
+                                  "last_name": validate_flight_field($("#last_name").val(), "last_name", "#last_name", "form6")
+                              }
+                              break;
+                      }
+
+                      if (Object.keys(query_data).length === 0) {
+                          $.ajax("{% url 'order_manage_access' %}", {
+                              type: 'POST',  // http method
+                              data: post_data,  // data to submit
+                              success: function (data, status, xhr) {
+                                  if (data.success) {
+                                      window.location.href = "{% url 'order_manage' %}?order_ref=" + data.order_manage_access;
+                                  } else {
+                                      var error_text = 'Unknow Error';
+                                      switch (data.message) {
+                                          case "invalid_order":
+                                              error_text = "Invalid Order Reference ID";
+                                              break;
+                                          case "invalid_form_data":
+                                              error_text = success.errors
+                                              break
+                                      }
+                                      $.toast({
+                                          heading: "error",
+                                          text: error_text,
+                                          icon: "error",
+                                          loader: true,        // Change it to false to disable loader
+                                          loaderBg: '#9EC600'  // To change the background
+                                      });
+
+                                  }
+                                  console.log(data);
+                              },
+                              error: function (jqXhr, textStatus, errorMessage) {
+                                  console.error('Error' + errorMessage);
+                              }
+                          });
+                      } else {
+                          const qs = Object.keys(query_data)
+                              .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(query_data[key])}`)
+                              .join('&');
+                          window.location.href = "{% url 'flight_search_offers' %}?" + qs;
+                      }
+
+                  }
+              });
+          });
+      })(jQuery);
+  </script>
+{% endblock inline_javascript %}

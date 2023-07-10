@@ -1,0 +1,78 @@
+{% extends "layouts/base-new.html" %}
+
+{% load static %}
+{% load custom_func %}
+
+{% block style %}
+<link href="{% static 'css/flights.css' %}" rel="stylesheet" />
+{% endblock style %}
+
+{% block header %}
+    {% include 'layouts/header.html' %}
+{% endblock header %}
+
+{% block content %}
+<main class="main">
+    <div class="wrap">
+        <!--breadcrumbs-->
+        <nav class="breadcrumbs">
+            <!--crumbs-->
+            <ul>
+                <li><a href="#" title="Home">Home</a></li>
+                <li>Contact</li>
+            </ul>
+            <!--//crumbs-->
+        </nav>
+        <!--//breadcrumbs-->
+
+        <div class="row">
+            <!--three-fourth content-->
+            <div class="three-fourth">
+
+            </div>
+            <!--three-fourth content-->
+
+            <!--sidebar-->
+            <aside class="one-fourth right-sidebar">
+                <!--contact form-->
+                <article class="widget">
+                    <h4>Send us a message</h4>
+                    <form method="post" action="contact_form_message.php" name="contactform" id="contactform">
+                        <fieldset>
+                            <div id="message"></div>
+                            <div class="row">
+                                <div class="f-item full-width">
+                                    <label for="name">Your name</label>
+                                    <input type="text" id="name" name="name" value="" />
+                                </div>
+                                <div class="f-item full-width">
+                                    <label for="email">Your e-mail</label>
+                                    <input type="email" id="email" name="email" value="" />
+                                </div>
+                                <div class="f-item full-width">
+                                    <label for="comments">Your message</label>
+                                    <textarea id="comments" rows="10" cols="10"></textarea>
+                                </div>
+                                <div class="f-item full-width">
+                                    <input type="submit" value="Send" id="submit" name="submit" class="gradient-button" />
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </article>
+                <!--//contact form-->
+
+                <!--contact info-->
+                <article class="widget">
+                    <h4>Or contact us directly</h4>
+                    <p class="number"><a href="tel:{{ contact_phone }}"> {{ contact_phone }}</a></p>
+                    <p class="email"><a href="mailto:{{ contact_email }}">{{ contact_email }}</a></p>
+                </article>
+                <!--//contact info-->
+            </aside>
+            <!--//sidebar-->
+        </div>
+        <!--//main content-->
+    </div>
+</main>
+{% endblock %}

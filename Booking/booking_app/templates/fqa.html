@@ -1,0 +1,222 @@
+{% extends "layouts/base-new.html" %}
+
+{% load static %}
+{% load custom_func %}
+
+{% block style %}
+<link href="{% static 'css/flights.css' %}" rel="stylesheet" />
+{% endblock style %}
+
+{% block header %}
+    {% include 'layouts/header.html' %}
+{% endblock header %}
+
+{% block content %}
+	<!--main-->
+	<main class="main">		
+		<div class="wrap">
+			<!--breadcrumbs-->
+			<nav class="breadcrumbs">
+				<!--crumbs-->
+				<ul>
+					<li><a href="{% url 'home_page' %}" title="Home">Home</a></li> 
+					<li>FQA</li>
+				</ul>
+				<!--//crumbs-->
+			</nav>
+			<!--//breadcrumbs-->
+			
+			<div class="row">
+				<!--sidebar-->
+				<aside class="one-fourth left-sidebar">
+
+					<!-- LINKS -->
+					<article class="widget">
+						<ul>
+                            <li><a>Airport Transfers Questions</a></li>
+                            <li><a>Billings Questions</a></li>
+                            <li><a>Flights Questions</a></li>
+                            <li><a>Terms and Conditions Agreement</a></li>
+                            <li><a>Flight options</a></li>
+                            <li><a>General Questions</a></li>
+                            <li><a>Hotel Questions</a></li>
+                            <li><a>Vacation Packages Questions</a></li>
+                        </ul>
+					</article>
+					<!-- LINKS -->
+
+				</aside>
+				<!--//sidebar-->
+				
+				<!--three-fourth content-->
+				<div class="three-fourth">
+					<!--post-->
+					<article class="static-content post">
+						<h2>Airport Transfers Questions</h2>
+                        <h5>What is an airport transfer?</h5>
+                        <p>It is your hired motor vehicle ride between a location and the airport for your trip. Transfers can be either one way or round-trip. For example, you can purchase car service between your home and the departure airport for your destination.</p>
+                        <h5>How do I book an airport transfer for my trip?</h5>
+                        <p>After booking your flight on Ural Holidays, you will be able to buy airport transfer for your trip as well. You can buy a one-way or round-trip transfer between a location such as your home or business and your departure airport. Please contact our customer support to book airport transfer offline.</p>
+                        <h5>Do I have to pay tolls and a gratuity for my airport transfer?</h5>
+                        <p>When you select an all-inclusive airport transfer, you need not worry about paying tolls and/or a gratuity since they are included in the total cost of your transfer. (A gratuity, or tip, is an amount of money that is given directly to the driver in appreciation of the service, and is typically based on a percentage of its total cost.)</p>
+                        <p>If, however, you choose an airport transfer that is only partially inclusive or is not inclusive, then you will have to pay either the tolls or the gratuity, or both when you receive the service.</p>
+                        <h5>What should I do if I do not receive email confirmation of my airport transfer?</h5>
+                        <p>If the email confirmation does not appear in your inbox or spam folder soon after you complete the booking, then contact our customer care at <stron>+44 033 3303 4716</stron> immediately or mail us <strong>reservation@uralholidays.co.uk</strong>. A customer care representative should be able to make sure you get a confirmation with all of the details of your service.</p>
+                        <h5>How many people and suitcases are included in my airport transfer service?</h5>
+                        <p>Each type of airport transfer service, from a sedan to a limousine to a bus, has different limits on the number of people and bags that it can accommodate. These limits are clearly indicated for each transfer option. So be sure to choose the appropriate option for your trip</p>
+                        <h5>Where will my driver meet me?</h5>
+                        <p>Each type of airport transfer offered usually indicates whether it includes “Meet and Greet” or “Curbside” pick-up service. Generally speaking, “Meet and Greet” means that your driver will get out of the car at the location where you are to be picked up, and stand at a pre-arranged spot, such as in an airport terminal’s waiting area, with an identification sign to meet you. “Curbside” means that the driver will wait in the car on the street at a pre-arranged spot outside of your location.</p>
+                        <p>The email confirmation you receive when you book an airport transfer indicates which of these two types of service you have, and provides additional details on where your driver will meet you. It will also provide the contact information for your driver so you can communicate and coordinate your pick up as necessary.</p>
+                        <h5>If my airplane will be late, do I have to change my pick-up time?</h5>
+                        <p>No. Since most, if not all, of the providers of airport transfer services that are offered monitor their customers’ flights with flight tracking technology, your provider should be made aware of any changes to your flight’s arrival time automatically, and adjust your pickup time accordingly. This helps to reduce or even eliminate any delays in the airport transfer process.</p>
+                        <p>Nonetheless,</p>
+                        <p>If your flight is delayed we will check the flight information in advance and adjust your pick up time accordingly. In the case of connecting flights, please note that we are only able to check the flight details printed on this voucher. When you become aware of any change to your flight’s schedule, as you are on flight so you have not the opportunities to contact your provider as soon as you are able to and confirm the change. Unless otherwise stated, waiting time is 45 mins after the actual arrival time. After this time the vehicle will be released.</p>
+                        <p>As a reminder, if you listed your cell phone number in your airport transfer reservation as your primary contact number, be sure to activate your cell phone as soon as you are able to upon landing so that you and your provider can communicate and coordinate your pick up as necessary.</p>
+                        <h5>How do I cancel my airport transfer?</h5>
+                        <p>If you have to cancel your transfer, and are within the time limit for cancellation that has been set by your provider, then do so by contacting the contact center of Ural holidays.</p>
+                        <h5>If I carry extra luggage, do I need to give extra charge?</h5>
+                        <p>If you bring extra luggage, which cannot fit, in the vehicle, you will need to cover any additional costs incurred in transferring the extra luggage.</p>
+                        <h2>Billings Questions</h2>
+                        <h5>When can I expect my refund?</h5>
+                        <p>When a reservation is cancelled the same day it was booked, funds for the airline portion are not collected. Any pending charges you may have seen would have been a "pending hold" for verification. These funds will return to your available credit and will not reflect as a refund. This process normally takes from  1-14 business days, depending on your banking institutions procedures. Please note: Some prepaid credit card companies will hold pending authorizations for up to 30 days.</p>
+                        <p>If the airline rules allow for cancellation the day after booking, funds for the airline portion will be refunded within 1-14 business days. It will depend upon the airline(s) and your banking institution's policies. At times the refund will post before the charge is processed or may not appear on your current statement. Please contact your bank to verify the refund was received.</p>
+                        <h5>Why do I have duplicate charges for the same trip on my credit card?</h5>
+                        <p>If you are certain there are posted duplicate charges from Ural holidays, please contact the Billing Department for assistance at +44 033 3303 4716 or mail us reservation@uralholidays.co.uk</p>
+                        <p>I want to confirm my reservation.</p>
+                        <p>Please call our contact Center at <strong>+44 033 3303 4716</strong> for assistance. or mail us <strong>reservation@uralholidays.co.uk</strong></p>
+                        <h5>Why have I not received my refund?</h5>
+                        <p>Any refunds requested after 48-hours of purchase are based solely upon the airline(s) rules. If approved, the refund will generally take 1-2 billing statement cycles to reflect on your account. In some exceptional cases refunds may take longer than originally anticipated.</p>
+                        <h5>What are your cancellation fees?</h5>
+                        <p>Most airline tickets are non-refundable. In certain cases, where the airline may allow cancellations, a credit may be valid towards a future ticket purchase by the same traveler with travel on the same airline. An applicable penalty and a fare difference (if any), will be added in these cases. Please ask the customer support agent for the specific date by when you must use this credit or you will lose the credit amount.</p>
+                        <h5>I have a pending charge on my credit card for a transaction I cancelled. When will the hold for this amount be released back to my credit card?</h5>
+                        <p>Generally, we are able to release authorization codes directly with your bank if the transaction was made and cancelled on the same calendar day. There are some exceptions to this depending on your financial institution and the type of ticket that was purchased.</p>
+                        <h5>Why was my request for a refund denied?</h5>
+                        <p>Tickets purchased through Ural Holidays are non-refundable unless otherwise stated. Airline tickets have specific rules regarding changes and cancellations. These rules cannot be overwritten by Ural holidays. Once you request a cancellation, the rules of your ticket are governed by the airline and any subsequent refund or future travel credit is at their discretion.</p>
+                        <h2>Flights Questions</h2>
+                        <h5>How do I request a special meal for my flight?</h5>
+                        <p>Most airlines now charge for in-flight meals or no longer offer a meal service. You have an option to place a meal request when you purchase tickets online or you can call the airline directly. Special meal requests must be done at least 24-hours prior to the scheduled departure. These requests are not guaranteed and are at the discretion of the airline.</p>
+                        <h5>How do I book an infant fare?</h5>
+                        <p>Only one infant (Up to 24 months) is allowed to travel as a lap child per adult (over 18 years). Infants traveling internationally will be required to pay a percentage of the adult fare (in most circumstances), plus taxes and carry a paper ticket even though they are traveling on the adult's lap. Please contact our Customer Service team at <strong>+44 033 3303 4716</strong> or mail us <strong>reservation@uralholidays.co.uk</strong></p>
+                        <h5>Can you email a quote for flights?</h5>
+                        <p>As flights fill up throughout the day, the airline's fares change frequently. We are, unable to quote any fares via email. Fares are not guaranteed until ticketed. You may also contact our Customer Service team at <strong>+44 033 3303 4716</strong> or mail us <strong>reservation@uralholidays.co.uk</strong></p>
+                        <h5>How do I select my seats?</h5>
+                        <p>You can request seat assignments at the time of booking. When submitting traveler details during booking process, please select "Seat Preference" in the additional requests area</p>
+                        <h5>Please note:</h5>
+                        <p>Some airlines now charge for seat assignments and many airlines restrict pre-assigning of seats. Some airlines may only assign seats 90 days prior to flight departure.</p>
+                        <p>Bulk head and emergency exit row seating are controlled by the airline and cannot be pre-assigned. These seats may be blocked by the airlines and held for check-in at the airport on day of departure.</p>
+                        <h5>Why did the fare increase when I tried to book my flight?</h5>
+                        <p>Airfares can change minute by minute based on demand and availability. Between the time of your flight search and actual booking, seat inventory in a particular booking class (fare) may sell out. Airlines then offer their available inventory at a higher price: We monitor these changes closely and make every effort to keep inventory and fares in our displays as current as possible.</p>
+                        <h5>Can I call Ural holidays directly to make a booking?</h5>
+                        <p>Yes. Ural holidays offers phone assistance are ready to meet your travel needs. Please contact our Customer Service team at <strong>+44 033 3303 4716</strong> or mail us <strong>reservation@uralholidays.co.uk</strong></p>
+                        <h5>Can I make reservations for last minute travel?</h5>
+                        <p>Some bookings may require up to three business days to process, therefore you may not be able to book last minute travel online. However, you may contact our Customer Service team at +44 033 3303 4716 or mail us reservation@uralholidays.co.uk</p>
+                        <h5>Can I make a reservation arriving into one city and returning from another?</h5>
+                        <p>Yes. This is a multi-city option. Our booking engine allows you to search fares in many different ways such as flying into one city and returning from another. Please click on the "Multiple Cities" tab on the "Flight Search" screen to book your itinerary.</p>
+                        <h5>What is the maximum number of travelers that I can book online in one reservation?</h5>
+                        <p>You may book up to a total of nine passengers on a single reservation. If you have more than nine travelers, then contact our Customer Service team at <strong>+44 033 3303 4716</strong> or mail us <strong>reservation@uralholidays.co.uk</strong></p>
+                        <h5>Are the airfares guaranteed?</h5>
+                        <p>All airfares are subject to change without prior notice and are not guaranteed until payment has been received and tickets have been issued. In the unlikely event of a technical error causing an incorrect fare to be displayed, we reserve the right to advise you of the correct fare within three business days of your booking. You may choose to accept the new fare or cancel your booking. Please read more detailed information in the</p>
+                        <h2>Terms and Conditions Agreement.</h2>
+                        <h5>How do I change an existing reservation?</h5>
+                        <p>Please contact our Customer Service team at <strong>+44 033 3303 4716</strong> or mail us <strong>reservation@uralholidays.co.uk</strong>.  Please note that airlines charge a change fee per ticket, plus any difference in fare, depending on the flights you choose.</p>
+                        <h5>Can I make a name change to my flights?</h5>
+                        <p>All reservations must be made in the EXACT name of the person traveling - no nicknames. For domestic and international travel, the name on the reservation must be EXACTLY as it appears on the traveler's government issued identification or passport. Airlines do not allow name changes. However, in case you have made some error in spelling the name, please contact our Customer Service team at  or mail us <strong>reservation@uralholidays.co.uk</strong></p>
+                        <h5>What do I do if paper tickets are lost?</h5>
+                        <p>If your paper airline tickets are lost or stolen, please contact our Customer Service team at <strong>+44 033 3303 4716</strong> or mail us <strong>reservation@uralholidays.co.uk</strong>. Our representatives will assist you in filing a lost ticket application.</p>
+                        <h5>The ticket confirmation e-mail I have received indicates that the airline does not guarantee the booking, what does this mean?</h5>
+                        <p>The email confirmation with a pending status means that the booking is still not confirmed with the airline. You will be emailed a confirmed itinerary once your payment will be cleared and tickets are issued. You may contact our Customer Service team at <strong>+44 033 3303 4716</strong></p>
+                        <h5>I made a reservation online. How do I know if this is an e-ticket or a paper ticket?</h5>
+                        <p>At the time of booking, you will be notified whether you are getting an e-ticket or a paper ticket. However, if the form of your ticket changes due to some technical reasons, we will notify you within 24 hours of your booking. Occasionally when booking multiple airlines that do not have ticketing agreements we must issue a paper ticket. In this instance, an email will be sent to you, notifying you of the same.</p>
+                        <h5>Do my unused or partially used airline tickets have any value?</h5>
+                        <p>In some cases, unused tickets may be exchanged for a new ticket providing the airline allows changes. Your unused ticket has no value under the circumstance where the traveler does not show up for the flight. Please contact our Customer Service team at <strong>+44 033 3303 4716</strong> or or mail us <strong>reservation@uralholidays.co.uk</strong></p>
+                        <h5>How do I add additional passengers to an existing booking?</h5>
+                        <p>An additional passenger can only be booked by making a new reservation. Please note, fares may change every moment and we cannot guarantee the availability of the original fare or flight.</p>
+                        <h5>How do I travel with an E-Ticket (Electronic Ticket)?</h5>
+                        <p>Most airlines now offer electronic tickets and allow you to travel without a paper ticket, which eliminates the worry of loss or theft of your paper tickets.</p>
+                        <p>While traveling with e-tickets, please carry government issued photo identification (such as a driver's license or passport) to the airport.</p>
+                        <p>With some airlines, you may check-in online and print your boarding pass up to 24 hours in advance. Passengers must have a printed boarding pass in order to proceed through security. Customers with checked-in baggage or E-tickets who do not have a printed boarding pass must go to the ticket counter prior to going through the security checkpoint.</p>
+                        <p>It is advisable that you reconfirm your flights at least 72hrs prior to departure directly with the airline.</p>
+                        <h5>What happens to my checked baggage when I change planes?</h5>
+                        <p>If you are changing planes and the airlines you are flying have a baggage agreement, your baggage will be checked all the way through to your final destination.</p>
+                        <p>If the airlines you are flying do not have a baggage agreement, it will be the responsibility of the passenger to go to Baggage Claim at the very first airport, where you are changing planes to claim their baggage there. The passenger must then check their baggage in again for the continuing flight and have their bags checked to their final destination.</p>
+                        <h5>How do I know if the airlines I'm flying have a baggage agreement?</h5>
+                        <p>Please look for baggage alert in your itinerary. If you have one it means the airlines do not have baggage agreement. Please call the airline you are flying, and confirm whether your baggage will be checked to your final destination or if you will have to claim your baggage when you change planes.</p>
+                        <h5>What happens if I miss my flights?</h5>
+                        <p>If you miss your departure flight, the airline reserves the right to mark your ticket as a "No Show" reservation. No show = No Value. This means your ticket cannot be changed or refunded, even with a penalty. If you are on route to the airport and feel you might miss your flight, you MUST call the airline as soon as possible to avoid this "No Show" situation. Once the record has been made a "No Show" reservation, we will no longer have any control in regard to the itinerary or any possible refund.</p>
+                        <p>If you've made your departure flight, but you've missed your subsequent flight, you should immediately go to the nearest ticket counter for the airline where you were changing planes. If you've missed your flight you were supposed to change to due to a problem that is within the airline's control, they should protect you on the very next available flight. If you've missed this flight due to something that is not within the airline's control (weather, air traffic, etc.) or due to your own fault, it will be left entirely up to the airline's discretion to protect you or not. If the airline decides that protection is not warranted, it will be up to the passenger to find their own way to their final destination at the passenger's expense.</p>
+                        <p>It's also important to note, if you do miss any of your flights ALL CONSEQUENT FLIGHTS ON THE SAME ITINERARY WILL ALSO BE CANCELLED under the "No Show" policy.</p>
+                        <h5>What if I cannot travel and decide to just not show up at the airport? Will my ticket be refundable or changeable?</h5>
+                        <p>As stated above, if you cannot travel, you must call us or the airline immediately. If you decide to "just not show up" your itinerary will be marked as a "No Show" and all penalties and restriction mentioned in the previously answered question will apply.</p>
+                        <h5>What documentation or types of photo identification will I need to travel?</h5>
+                        <p>Proper documentation will change based on the city you're departing from, the city you are traveling to, where you are changing planes and what country your passport has been issued under. To answer this question accurately, you must call the airline you are traveling and supply them with the necessary information. They will then tell you whether you need a visa, passport or further documentation. Please note, this information is the sole responsibility of the passenger. Neither Flight Expert nor the airline will be held accountable if you show up at the airport with insufficient or invalid travel documents or identification. It is also important to note, that if you do not have valid or sufficient documents, the airline can deny you boarding and you could be left to find new transportation to your destination at your own cost.</p>
+                        <h5>Can I earn frequent flyer miles on the tickets?</h5>
+                        <p>Most of our Airfares allow accumulation of frequent flyer miles. However, there are exceptions. You must enter the frequent flyer number in Traveler Details for it to be transmitted to the Airlines. In fact, the Travelers Profile section lets you store and recall up to 8 different Airlines' frequent flyer numbers per client.</p>
+                        <h5>What is difference between roundtrip, one way and multi destinations?</h5>
+                        <p>Roundtrip means you will fly from one location to another, and then back to the first location.</p>
+                        <p>One way means you will fly from one location to another, and will not return to the first location.</p>
+                        <p>Multiple destinations mean you will visit several locations and therefore need to choose flights between each of those locations.</p>
+                        <h5>What are the different classes of service on the plane?</h5>
+                        <p>In addition to Coach/Economy class seating, many flights offer Business, and/or First Class seating. Please note that the following descriptions are generalizations; some airlines may use different names to describe their classes of service.</p>
+                        <p>Coach/Economy class is seating is in the main cabin area. These seats are usually the least expensive.</p>
+                        <p>Business class seating--when available--tends to feature roomier seats that recline farther, more leg room, and upgraded meal service. Business class tickets cost more than Coach/Economy but less than First Class.</p>
+                        <p>First class seating is usually in the cabin area nearest the front of the aircraft. It has the fewest and most comfortable seats, and offers upgraded meals. Other perks can include shorter lines at check-in and use of the airline's airport business lounge. First Class fares are almost always the most expensive, and are not available on all aircraft.</p>
+                        <h2>Flight options</h2>
+                        <p>Nonstop flights only - Check this box if you want to see fares only for flights that do not stop or change planes at one or more airports before you reach your final destination.</p>
+                        <p>Stops but no plane change flights: These flights may have up to 2 landings and departures that may not be disclosed upon booking, but there is no change of planes</p>
+                        <p>Connecting flights:Flights may have one or more landings and departures. Passengers will have to disembark the plane and re-board another flight.</p>
+                        <h2>General Questions</h2>
+                        <h5>How does Ural holidays compare with other online travel sites?</h5>
+                        <p>We feel our fares are cheaper and we present an un-biased listing of Fares, we are not affiliated to any single airline or large consortium as other Major Travel sites are.</p>
+                        <h2>Hotel Questions</h2>
+                        <h5>I made a hotel /car reservation online. Do I get a confirmation voucher?</h5>
+                        <p>All online bookings for hotel and car rental services will generate a confirmation with the number assigned by the hotel or car rental company. For guarantee only reservations, we also strongly suggest that all arrangements be confirmed not less than 24 hours prior to departure.</p>
+                        <h5>How do I add additional passengers to an existing air, or hotel booking?</h5>
+                        <p>Adding a guest to the same hotel room can be done by calling our customer service desk at <strong>+44 033 3303 4716</strong> or mail us <strong>reservation@uralholidays.co.uk</strong>  If you need to book an additional room for the guest, you may do so online as a new reservation.</p>
+                        <h5>What do I do if the Hotel charges more than the amount in my reservation?</h5>
+                        <p>The hotel must honor the rate given to you when you made the reservation. You may use your reservation printout as evidence and get the hotel to rectify the amount that is being charged.</p>
+                        <h5>Do online bookings require immediate payment?</h5>
+                        <p>Yes, booking require immediate payment if the booking is under cancellation policies and booking don’t require immediate payment if the booking is under free cancellation policies. Cancellation policies vary by property.</p>
+                        <p>However, before check in a customer have to pay Ural holidays in order to have the hotel facilities unless its mentioned as “Pay at Hotel”.</p>
+                        <h5>What should I do if I have problems checking in, or they can’t find my reservation?</h5>
+                        <p>It’s a good idea to print the Flight Expert’s confirmation. Call us immediately to resolve the issue at priority bases.</p>
+                        <h5>How do I cancel my hotel booking?</h5>
+                        <p>Cancellations can only be accepted within the specified timeframe that are displayed on your confirmation. Additional hotel refund policies are applicable. No reservation can be cancelled after the date of check-in, and guests are responsible for any and all "no show" charges. Refunds are at the discretion of the hotel and may not result in full refunds. On some non-prepaid hotels, hotel companies require a deposit up to and including the full amount of the stay, which will result in non-refundable cancellations and no modifications allowed.</p>
+                        <p>Cancellation should be requested by calling customer service at <strong>+44 033 3303 4716</strong> or mail us <strong>reservation@uralholidays.co.uk</strong> </p>
+                        <h5>How do I change the dates for my hotel?</h5>
+                        <p>Any amendments to dates, room type, traveler’s names, etc. is at the sole discretion of the individual hotel policy. Charges may apply to change the dates.</p>
+                        <h5>Do I need a voucher for my hotel reservation?</h5>
+                        <p>Yes, all online bookings of hotel services will generate confirmation with the number assigned by the hotel.</p>
+                        <h5>What should I do if I have problems checking in at the hotel?</h5>
+                        <p>Make sure they have the booking number on hand. It is a good idea to print the Ural holidays confirmation for clients to carry with them. If a hotel overbooks, as they do on occasion, and you have a guaranteed reservation, the hotel is obligated to find you a comparable hotel and free transportation to this hotel. The hotel manager should provide this to your clients.</p>
+                        <p>Call us at <strong>+44 033 3303 4716</strong> for further assistance or mail us: <strong>reservation@uralholidays.co.uk</strong></p>
+                        <h5>I called the hotel and they don’t have my reservation. What should I do?</h5>
+                        <p>This is a fairly common practice and an in many cases, the hotel will not receive the actual guest name until 72 hours prior to arrival date. Your reservation is secure and guaranteed and our hotel quality assurance team personally verifies check in details with each hotel prior to each day’s arrivals. We recommend you contact the property within three days of your scheduled arrival to confirm your details.</p>
+                        <h2>Vacation Packages Questions</h2>
+                        <h5>What is a vacation package?</h5>
+                        <p>A vacation package is a combination of Hotel+Car or Flight+Hotel+Car+Sightseeing or Hotel+Sightseeing that give you access to special rates.</p>
+                        <h5>What would be the benefits of a Ural holidays vacation package?</h5>
+                        <p>By choosing to buy your vacation package through Ural Holidays, you are saving time as well as money. You'll always get the lowest airfare on the participating airlines with the purchase of a Flightexpert’s vacation package. In addition, we negotiate discounted hotel and car rental rates and pass the savings to you.</p>
+                        <h5>While making a booking, can I opt for my own choice of flight, hotel or car?</h5>
+                        <p>Yes, you can. We bundle the options as per our proprietary technology which combines your required travel product based on price, location and ratings. At any time before the booking is completed, you can pick and choose flights, hotels or cars to get the desired vacation package.</p>
+                        <h5>I did not get any result for my vacation package search?</h5>
+                        <p>Ural holidays Vacation Packages are currently not available in all markets. We are adding new vacation packages for various cities every day. If your search did not yield any result, you can book your requirements separately. You can also call our vacation package specialists at <strong>+44 033 3303 4716</strong>  or mail us <strong>reservation@uralholidays.co.uk</strong> to receive the best combination for your vacation needs.</p>
+                        <h5>Can I add travelers from my booked vacation package?</h5>
+                        <p>You cannot add travelers to an existing package. However, you can book a new package for the required travelers. Alternatively, you can call our vacation specialist at +44 033 3303 4716 or email reservation@uralholidays.co.uk  in order to complete the new package purchase.</p>
+                    </article>
+					<!--//post-->
+					
+					<!--bottom navigation-->
+					<div class="bottom-nav">
+						<!--back up button-->
+						<a href="#" class="scroll-to-top" title="Back up">Back up</a> 
+						<!--//back up button-->
+					</div>
+					<!--//bottom navigation-->
+				</div>
+				<!--//three-fourth content-->
+			</div>
+			<!--//main content-->
+		</div>
+	</main>
+	<!--//main-->
+{% endblock %}

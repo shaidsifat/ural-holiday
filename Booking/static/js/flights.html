@@ -1,0 +1,98 @@
+{% extends "layouts/base-new.html" %}
+
+{% load static %}
+{% load custom_func %}
+
+{% block style %}
+<link href="{% static 'css/flights.css' %}" rel="stylesheet" />
+{% endblock style %}
+
+{% block header %}
+    {% include 'layouts/header.html' %}
+{% endblock header %}
+
+{% block content %}
+	<main class="main">
+		<div class="wrap-2">
+			<!-- <div class="container">
+				<nav class="breadcrumbs">
+					<ul>
+						<li><a href="{% url 'home_page' %}" title="Home">Home</a></li>
+						<li><a href="#" title="Locations">
+							{% for line in lines %}
+								{% if forloop.first %}{%else%}&#x2708{% endif %} {{line}}
+							{% endfor %}
+						<li><a href="#" title="Dates">{{ departureDate }}
+							{% if arrivalDate %} <span>&#10594&#10596</span> {{ arrivalDate }}{% endif %}</a></li>
+					</ul>
+				</nav>
+			</div> -->
+
+			  <!--tab section start-->
+				<div class="tab-section-home tab-search-inner">
+					<div class="container">
+					<div class="tab">
+						<button class="tablinks" id="book_btn" onclick="uralBooking('Book')"><span></span>Book</button>
+					</div>
+
+					<!-- Tab content -->
+					<div id="Book" class="tabcontent">
+						<h3>Search Flights</h3>
+						{% include "search-form/one_way.html" %}
+						{% include "search-form/multi_way.html" %}
+						{% include "includes/search_panel.html" %}
+
+					</div>
+					</div>
+				</div>
+			
+			<div class="full-width flight-list-block">
+				<div class="container">
+					<div class="hidden-search-form" id="hidden-search-form">
+						<form action="{% url 'flights' %}" method="post">
+							{% csrf_token %}
+							<div class="fields">
+								{{ form.as_p }}
+								<p class="passenger-input">
+									<span class="label">Passenger / Class:</span>
+									<span>1 Passenger, Economy</span>
+								</p>
+							</div>
+							<input class="submit-button" type="submit" value="Show Flights">
+						</form>
+					</div>
+					<div class="sort-by">
+						<div class="{% if form.data.sort_by == 'price' %}is-active{% endif %}" id="sort-by-price">
+							<h4>Cheapest</h4>
+							<p>Click to see the cheapest flights in ascending order</p>
+						</div>
+						<div class="{% if form.data.sort_by == 'duration' %}is-active{% endif %}" id="sort-by-duration">
+							<h4>Fastest</h4>
+							<p>Showing the fastest flights in ascending order</p>
+						</div>
+					</div>
+
+					<div class="deals flights row results">
+						{% for offer in offers %}
+							{% include 'air/components/details.html' %}
+						{% empty %}
+							<h4 class="no-flight-found">No flights found for this itinerary</h4>
+						{% endfor %}
+
+						<div class="bottom-nav">
+							{% if offers %}
+								<a href="#" class="scroll-to-top" title="Back up">
+									Back up
+								</a>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+{% endblock content %}
+
+{% block inline_javascript %}
+<script type="text/javascript" src="{% static 'js/search.js' %}"></script>
+{% endblock inline_javascript %}

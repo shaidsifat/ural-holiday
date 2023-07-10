@@ -1,0 +1,61 @@
+body {background: white;}
+
+a,.widget a:hover,.widget a:focus,aside .widget h5,.main-search h5 span,.details .description a,.results.flights h5,.tab-content h2 a:hover,.tab-content h2 a:focus,.tab-content h3 a:hover,.tab-content h3 a:focus,.tab-content h4,.entry-meta span a:hover,.entry-meta span a:focus,.entry-header h2 a:hover,.entry-header h2 a:focus,.boxes article h4,blockquote i 
+{
+	color:#520c30;
+}
+
+ul > li:before,.booking h2 span
+{
+	color:#801c4f;
+}
+
+.footer ul > li:before {
+	color: #fff !important;
+}
+
+.social li a:hover,.social li a:focus,.pager .current,.pager a:hover,.contact:before,.header .ribbon,.destinations article .ribbon:hover,.view-type .active,.tags li:hover,.inner-nav li:hover,.inner-nav li.active,.inner-nav li.active:hover,.chart dd span,.infoBox,.lb-wrap,.ui-slider-horizontal .ui-slider-handle ,.image-overlay:before 	
+{
+	background:#801c4f !important;
+}
+
+.gradient-button,button, input[type="button"], input[type="reset"], input[type="submit"],.scroll-to-top,.testimonials,.ui-datepicker .ui-state-hover,.ui-datepicker .dp-highlight a,.ui-datepicker .dp-highlight span	     
+{
+	background: #801c4f;
+	background: -moz-linear-gradient(top, #801c4f 0%, #520c30 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#801c4f), color-stop(100%,#520c30));
+	background: -webkit-linear-gradient(top, #801c4f 0%,#520c30 100%);
+	background: -o-linear-gradient(top, #801c4f 0%,#520c30 100%);
+	background: -ms-linear-gradient(top, #801c4f 0%,#520c30 100%);
+	background: linear-gradient(to bottom, #801c4f 0%,#520c30 100%);
+}
+
+.gradient-button:hover,button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover,.gradient-button:focus,button:focus, input[type="button"]:focus, input[type="reset"]:focus, input[type="submit"]:focus,.scroll-to-top:hover,.scroll-to-top:focus	   	
+{
+	background: #520c30;
+	background: -moz-linear-gradient(top, #520c30 0%, #801c4f 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#520c30), color-stop(100%,#801c4f));
+	background: -webkit-linear-gradient(top, #520c30 0%,#801c4f 100%);	
+	background: -o-linear-gradient(top, #520c30 0%,#801c4f 100%);
+	background: -ms-linear-gradient(top, #520c30 0%,#801c4f 100%);
+	background: linear-gradient(to bottom, #520c30 0%,#801c4f 100%);
+}
+
+.scroll-to-top:before,
+.ascending:hover:before,
+.ascending:focus:before 			{border-color: transparent transparent #801c4f transparent;}
+
+.scroll-to-top:hover:before,
+.scroll-to-top:focus:before			{border-color: transparent transparent #520c30 transparent;}
+
+.header .ribbon:before,
+.descending:hover:before,
+.descending:focus:before,
+.infoBox:after 								{border-color:#801c4f transparent transparent transparent;}
+
+.header .ribbon:after					{border-color: transparent #801c4f transparent transparent;}
+
+.inner-nav li.active a:after 			{border-color: transparent transparent transparent #801c4f;}
+
+.ball,.ball1 									{border-color:#801c4f;}
+

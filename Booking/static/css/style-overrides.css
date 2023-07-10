@@ -1,0 +1,41 @@
+.termly-cookie-preference-button{
+    background: linear-gradient(to bottom, #801c4f 0%,#520c30 100%)!important;
+    height: 30px!important;
+    border-radius: 3px!important;
+    border: 1px solid #5f7d9c!important;
+    font-family: Roboto, Arial!important;
+    font-size: 10px!important;
+    color: #fff!important;
+    font-weight: 600!important;
+    box-sizing: border-box!important;
+    cursor: pointer!important;
+    outline: none!important;
+}
+
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.marquee {
+  overflow: hidden;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+  display: flex;
+  background-color: white;
+}
+
+.marquee h1{
+  font-size: 2em;
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: black;
+}
+
+
+.iti__flag {background-image: url("/static/plugins/intl-tel-input/img/flags.png");}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .iti__flag {background-image: url("/static/plugins/intl-tel-input/img/flags@2x.png");}
+}

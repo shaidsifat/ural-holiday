@@ -1,0 +1,88 @@
+{% extends "layouts/base-new.html" %}
+
+{% load i18n %}
+
+{% block head_style %}
+<link rel="stylesheet" href="/static/plugins/intl-tel-input/css/intlTelInput.css">
+<link rel="stylesheet" href="/static/css/footer.css">  
+{% endblock head_style %}
+
+{% block header %}
+{% include "layouts/header.html" %}
+{% endblock header %}
+
+{% block content %}
+<main class="main">
+    <div class="centering-wrap d-flex justify-content-center">
+        <div class="login-form">
+            <!--latest offers-->
+            <header class="s-title">
+                <h2>Login</h2>
+            </header>
+            <form id="form_login" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                <div>
+                    {{form.non_field_errors}}
+                </div>
+
+                <div class="f-item full-width">
+                    <label for="{{ form.login.id_for_label }}">Phone or Email</label>
+                    {#<input type="text" name="login" placeholder="Phone or e-mail" autocomplete="email" required="" id="id_login">#}
+                    <input type="text" name="login" placeholder="Phone or e-mail" autocomplete="email" required="">
+                    <!-- {{ form.login }} -->
+                    {{ form.login.errors }}
+                    <ul id="phoneError" class="errorlist"></ul>
+                </div>
+                <div class="f-item full-width">
+                    <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+                    {{ form.password }}
+                    {{ form.password.errors }}
+                </div>
+                <div class="f-item checkbox full-width">
+                    {{ form.remember }}
+                    <label for="{{ form.remember.id_for_label }}">{{ form.remember.label }}</label>
+                </div>
+                {% if redirect_field_value %}
+                <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+
+                <div class="f-item full-width">
+                    <p><a href="{% url 'account_reset_password' %}" title="Forgot password?">Forgot password?</a><br />
+                    Dont have an account yet? <a href="{% url 'account_signup' %}" title="Sign up">Sign up.</a></p>
+                    <input type="submit" id="login" name="{% trans 'Log In' %}" value="login" class="gradient-button" />
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock content %}
+
+{% block inline_javascript %}
+<script src="/static/plugins/intl-tel-input/js/intlTelInput.js"></script>
+<script>
+    const input = document.querySelector("#id_login");
+    const intlTelInput = window.intlTelInput(input, {
+      preferredCountries: ['bd', 'gb', 'us', 'in'],
+      utilsScript: "/static/plugins/intl-tel-input/js/utils.js",
+    });
+
+
+    $('#form_login').submit(function(e) {
+      event.preventDefault(); //this will prevent the default submit
+      // your code here
+      $("#phoneError").empty();
+      var isValid = intlTelInput.isValidNumber();
+      if(!isValid) {
+        $("#phoneError").append('<li>Phone number is invalid.</li>');
+        return false;
+      }
+      $('#id_login').val(intlTelInput.getNumber());
+      $(this).unbind('submit').submit();
+    });
+
+</script>
+
+
+
+{% endblock inline_javascript %}

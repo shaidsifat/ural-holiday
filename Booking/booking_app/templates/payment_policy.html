@@ -1,0 +1,69 @@
+{% extends "layouts/base-new.html" %}
+
+{% load static %}
+{% load custom_func %}
+
+{% block style %}
+<link href="{% static 'css/flights.css' %}" rel="stylesheet" />
+{% endblock style %}
+
+{% block header %}
+    {% include 'layouts/header.html' %}
+{% endblock header %}
+
+{% block content %}
+	<!--main-->
+	<main class="main">		
+		<div class="wrap">
+			<!--breadcrumbs-->
+			<nav class="breadcrumbs">
+				<!--crumbs-->
+				<ul>
+					<li><a href="{% url 'home_page' %}" title="Home">Home</a></li> 
+					<li>Payment Policy</li>
+				</ul>
+				<!--//crumbs-->
+			</nav>
+			<!--//breadcrumbs-->
+			
+			<div class="row">
+				
+				<!--three-fourth content-->
+				<div class="full-width">
+					<!--post-->
+					<article class="static-content post">
+                        <h1>Payment Policy</h1>
+                        <h3>WE PROTECT YOUR DATA AND DO NOT SHARE IT WITH THIRD PARTIES</h3>
+                        <p>We accept all major credit & debit cards issued globally.</p>
+                        <p>The card holder must be one of the passengers for an online payment.</p>
+                        <p>Please note fares are guaranteed only upon ticketing and not upon submission of payment.</p>
+                        <p>If there is any issue with your payments we will notify you within 24 hours.</p>
+                        <p>Please note all hotel, car rental and tour bookings are only confirmed upon delivery of complete confirmation details to the email you provided with your reservation. In some cases prepayment maybe required to receive confirmation.</p>
+                        <p>We Dont accept third party Credit card or debit card payments.</p>
+                        <p>Please navigate to the link in the payment verification email that we sent you. Here you will be able to upload the additional documentation that allows us to verify that the cardholder approved the transaction to purchase your ticket. Please ensure to comply with the size limitations of the documents you are requested to upload. </p>
+                        <p>Once you have uploaded your documentation, you will receive an automated response acknowledging the receipt of information. Later on, you will then receive another email confirming the status of the verification</p>
+                        <p>You will be required to send the following details to epayments@uralholidays.co.uk when requested.</p>
+                        <p>Ural holidays Ltd takes payment security seriously. In order to ensure that the use of your payment card was authorised, we ask you to give us additional informations.</p>
+                        <p>A scanned copy of the cardholder’s credit card statement showing the Ural Holidays transaction.</p>
+                        <p>Credit/debit card authorization form to be filled by the card holder (Scan copy).</p>
+                        <p>Colored scan copy (both sides) of the credit/debit card used for the booking.</p>
+                        <p>Colored scan copy of the card holders passport or driving license with selfie.</p>
+                        <p>If you fail to provide us with a response to the credit card verification email within 24 hours, we reserve the right to cancel your booking and accordingly process a refund to the credit card used for purchase. If you are unable to send us the documents in the stipulated time frame, please call your local office and advise us of your circumstance.</p>
+                    </article>
+					<!--//post-->
+					
+					<!--bottom navigation-->
+					<div class="bottom-nav">
+						<!--back up button-->
+						<a href="#" class="scroll-to-top" title="Back up">Back up</a> 
+						<!--//back up button-->
+					</div>
+					<!--//bottom navigation-->
+				</div>
+				<!--//three-fourth content-->
+			</div>
+			<!--//main content-->
+		</div>
+	</main>
+	<!--//main-->
+{% endblock %}

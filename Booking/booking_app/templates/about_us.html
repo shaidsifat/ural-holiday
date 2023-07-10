@@ -1,0 +1,49 @@
+{% extends "layouts/base-new.html" %}
+
+{% load static %}
+{% load custom_func %}
+
+{% block style %}
+<link href="{% static 'css/flights.css' %}" rel="stylesheet" />
+{% endblock style %}
+
+{% block header %}
+    {% include 'layouts/header.html' %}
+{% endblock header %}
+
+{% block content %}
+    <!--main-->
+<main class="main">		
+    <div class="wrap">
+        <!--breadcrumbs-->
+        <nav class="breadcrumbs">
+            <!--crumbs-->
+            <ul>
+                <li><a href="{% url 'home_page' %}" title="Home">Home</a></li> 
+                <li>About Us</li>                                       
+            </ul>
+            <!--//crumbs-->
+        </nav>
+        <!--//breadcrumbs-->
+        
+        <div class="row">
+            <!--three-fourth content-->
+            <div class="full-width">
+                <article class="static-content post" >
+                    <h1>About Us</h1>
+                    <p>We pride ourselves on the stringent measures we take in providing the safest and highly trusted travel products at the best price to our customers. Each and every Travel Expert at Ural holidays Ltd is well aware about the measures taken in-house to ensure a safe and delightful travel experience for our customers. We at Ural holidays Ltd work towards delivering well planned worldwide travel products that are unique, high in quality and assembled according to the desires of the customers, at incredible rates. Ural Holidays, being a leading travel brand from the highly reputed Ural Holidays Ltd with a cumulative travel experience of over three decades, is renowned for its most affordable and all-inclusive travel solutions. We optimally utilise our wide travel network that has been established over the years in order to meticulously connect our esteemed customers, from the United Kingdom with the rest of the world. Ural holidays currently owns an ATOL certification issued by Civil Aviation Authority which guarantees that the majority of all our flight arrangements and flight-inclusive packages are financially protected. Though some of our holiday packages and other travel services provided by other third party suppliers are not considered under ATOL protection, we assure that each and every travel supplier that we handpick is a pioneer in the respective industry with a proven track record of well protected service delivery.</p>
+                    <p>Ural Holidays is also an IATA accredited agent enabling the company to have access to all the leading international and domestic airlines that ensures fair and uniform standards in booking flights for our customers. This also allows our customers to book with us confidently. We have teamed up with an extensive network of over 150 leading airlines, 65,000 hotels, insurance companies and many other handpicked travel suppliers to bring our client base with the most impressive travel solutions. In addition, Ural Holidays prides itself on being the official travel agent for over 84 international airlines. We offer a range of travel solutions that cater to a vast array of customers – both in the corporate and leisure travel market. Our services include flights, hotel accommodation, airport parking facilities, travel insurance, sporting events and so on, thereby providing fully-fledged and hassle-free travel arrangements. We have been constantly improving our services and will continue to work towards adding more valuable and financially secure services to our product list in the years to come.</p>
+                    <p>We certainly understand the importance of travel being both comfortable and affordable. The substantial amount of travel solutions generated via Ural Holidays has provided us with the ability to negotiate and bring the most competitive price for our customers. Furthermore, we offer travel arrangements to an extensive range of destinations, around the world. Ural Holidays has taken a step ahead to provide its customers with a multi-channel booking facility. You could get in touch with our team through a number of sources – call, text, e-mail or simply book online. Our team operates 24 hours, daily for your convenience. Simply buzz us to hear more about our deals and we guarantee you would come back for your future travel needs. Ural Holidays immensely values the happy smiles from satisfied travel experiences from its customers. Therefore, our team strives to provide the best support, best deals and best services that are well-protected whilst you take home the best memories!</p>
+                </article>
+                <div class="bottom-nav">
+                    <!--back up button-->
+                    <a href="#" class="scroll-to-top" title="Back up">Back up</a>
+                    <!--//back up button-->
+                </div>
+            </div>	
+            <!--three-fourth content-->
+        </div>
+        <!--//main content-->
+    </div>
+</main>
+{% endblock %}

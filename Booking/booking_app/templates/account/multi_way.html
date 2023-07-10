@@ -1,0 +1,81 @@
+{% load static %}
+<form method="post" action="/air/flights" class="multi-way-form">
+  {% csrf_token %}
+  {{ multi_form.sort_by }}
+
+  <div class="banner-form-trip">
+    <span>Trip</span>
+    {{ multi_form.multi_trip_type }}
+  </div>
+
+  <div id="id-field-array-wrapper">
+    <div class="banner-form multi-ways-row">
+      <div class="input-group select-airports">
+        <a class="swap-icon"><img src="{% static 'images/swap-icon.png' %}" alt=""></a>
+        {{ multi_form.multi_departure_at_0 }}
+        {{ multi_form.multi_arrival_at_0 }}
+      </div>
+      <div class="flex-input">
+        <div class="banner-form-datepicker-area-duo w-50">
+          <div class="left">
+            <span>Depart</span>
+            {{ multi_form.multi_departure_date_0 }}
+          </div>
+          <div class="md">-</div>
+          <div class="right">
+            <span>Return</span>
+            {{ multi_form.multi_return_date_0 }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="banner-form multi-ways-row">
+      <div class="input-group select-airports">
+        <a class="swap-icon"><img src="{% static 'images/swap-icon.png' %}" alt=""></a>
+        {{ multi_form.multi_departure_at_1 }}
+        {{ multi_form.multi_arrival_at_1 }}
+      </div>
+      <div class="flex-input">
+        <div class="banner-form-datepicker-area-duo w-50">
+          <div class="left">
+            <span>Depart</span>
+            {{ multi_form.multi_departure_date_1 }}
+          </div>
+          <div class="md">-</div>
+          <div class="right">
+            <span>Return</span>
+            {{ multi_form.multi_return_date_1 }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="promotion">
+    <div class="promo w-25 d-flex align-items-center justify-content-start">
+      <a href="#" id="id_add_flight">+ Add a Flight</a>
+    </div>
+    <div class="banner-form-Passengers_class-area w-25 text-start">
+      <span>Passenger / Class</span>
+      <input
+          type="text"
+          name=""
+          class="banner-form-Passengers_class-input"
+          value="1 Passenger, Economy"
+      >
+      {{ multi_form.multi_adults }}
+      {{ multi_form.multi_child }}
+      {{ multi_form.multi_infant }}
+      {{ multi_form.multi_flight_class }}
+    </div>
+    <div class="w-25 promo-code">
+      <input type="text" name="" placeholder="Promo code" class="w-100 h-100">
+    </div>
+    <div class="form-button w-25 p-2">
+      <button href="#" type="submit">
+        Show flights <img src="{% static 'images/buttonflight.png' %}" alt="">
+      </button>
+    </div>
+  </div>
+</form>

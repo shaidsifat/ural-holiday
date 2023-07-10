@@ -1,0 +1,93 @@
+{% load static %}
+{% block javascript %}
+    <script>
+        function toggle_navigation(elemt) {
+            elemt.classList.toggle('change');
+            document.querySelector('.header-layout').classList.toggle('nav-opened');
+            document.querySelector('.nav-layout').classList.toggle('opened');
+        }
+
+        function animateNav(elemt) {
+            if (elemt.scrollTop > 0) {
+                document.querySelector('body').classList.add('header-hidden');
+            } else {
+                document.querySelector('body').classList.remove('header-hidden');
+            }
+        }
+    </script>
+{% endblock javascript %}
+
+<div class="header-layout" id="appTopHeader">
+    <div>
+        <div class="header-leftside">
+            <div class="logo-layout">
+                <a href="/"><img src="{% static 'images/txt/main-logo.svg' %}" class="logo" alt="Ural Holidays Ltd."></a>
+            </div>
+            <div class="mobile-menu-icon" onclick="toggle_navigation(this)">
+                <button class="menu-btn">
+                    <span class="open-title visually-hidden">Open Menu</span>
+                    <span class="close-title visually-hidden">Close Menu</span>
+                    <div class="burger-box">
+                        <div class="burger-inner"></div>
+                    </div>
+                </button>
+            </div>
+        </div>
+        <div class="nav-layout">
+            <div class="nav-content">
+                <div class="link-container">
+                    <div><a href="{% url 'home_page' %}#main-search">Flights</a></div>
+                    <div><a href="{% url 'my_account' %}">My booking</a></div>
+                    <div><a href="/">Experience</a></div>
+                    <div><a href="/">Explore</a></div>
+                    <div><a href="/">Flights status</a></div>
+                </div>
+                <div class="right-nav-layout">
+
+                    <div class="search-link">
+                        <p style="margin-right: 22px">Help</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+
+                    </div>
+                    <div class="auth-links">
+                        {#                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">#}
+                        {#                            <defs><style>.a{fill:#5c0931;opacity:0;}.b{fill:#fff;stroke:rgba(255,255,255,0);stroke-miterlimit:10;}</style></defs>#}
+                        {#                            <g transform="translate(-500 -266)"><rect class="a" width="24" height="24" transform="translate(500 266)"></rect>#}
+                        {#                                <g transform="translate(501.059 267.058)">#}
+                        {#                                    <path class="b" d="M3.535,18.712a.58.58,0,0,1,0-.817,10.38,10.38,0,0,1,14.682,0,.583.583,0,0,1,0,.813,10.383,10.383,0,0,1-14.686,0Zm.939-.409a9.436,9.436,0,0,0,12.8,0,9.432,9.432,0,0,0-12.8,0Zm13.079.255h-.008Zm2.372-2.569a.5.5,0,0,1-.217-.665,9.785,9.785,0,0,0,1.055-4.45,9.887,9.887,0,0,0-19.775,0,9.771,9.771,0,0,0,1.054,4.45.494.494,0,1,1-.882.446A10.765,10.765,0,0,1,0,10.876a10.876,10.876,0,0,1,21.752,0,10.76,10.76,0,0,1-1.162,4.9.493.493,0,0,1-.441.271A.511.511,0,0,1,19.926,15.99Zm-13-6.137a3.955,3.955,0,1,1,3.955,3.954A3.96,3.96,0,0,1,6.921,9.853Zm.989,0a2.966,2.966,0,1,0,2.966-2.967A2.97,2.97,0,0,0,7.91,9.853Z"></path></g></g>#}
+                        {#                        </svg>              #}
+                        <a href="/">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                            </svg>
+                        </a>
+                        {% if user.is_authenticated %}
+                            <a href="{% url 'my_account' %}">
+                                {{ user.username }}
+                            </a>
+                            <form method="post" action="{% url 'account_logout' %}" id="logout_from">
+                                {% csrf_token %}
+                                {% if redirect_field_value %}
+                                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                                {% endif %}
+                            </form>
+                            <a href="#" style="margin-left:15px" onclick="document.getElementById('logout_from').submit()">Logout</a>
+                        {% else %}
+                            <a href="{% url 'account_login' %}">
+                                Login
+                            </a>
+                            <span class="divided-line">|</span>
+                            <a href="{% url 'account_signup' %}">
+                                Sign up
+                            </a>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,174 @@
+{% extends "layouts/base.html" %}
+{% load static %}
+{% block header %}
+{% include "layouts/header.html" %}
+{% endblock header %}
+
+{% block javascript %}
+
+{% endblock javascript %}
+
+{% block content %}
+<main class="main">
+    <div class="wrap">
+        <!--breadcrumbs-->
+        <nav class="breadcrumbs">
+            <!--crumbs-->
+            <ul>
+                <li><a href="{% url 'home_page' %}" title="Home">Home</a></li>
+                <li><a href="#" title="Locations">
+                    {% for line in offer.lines %}
+                        {% if forloop.first %}{%else%}&#x2708{% endif %} {{line}}
+                    {% endfor %}
+                <li><a href="#" title="Dates">{{ offer.departureDate }}
+                    {% if offer.arrivalDate %} <span>&#10594&#10596</span> {{ offer.arrivalDate }}{% endif %}</a></li>
+                <li><a href="#">Review Flight Information</a></li>
+                <li><a href="#">Travelers Information</a></li>
+                <li>Confirmation</li>
+            </ul>
+            <!--//crumbs-->
+            
+            <!--top right navigation-->
+            <ul class="top-right-nav">
+                <li><a href="#" title="Back to results">Back to results</a></li>
+                <li><a href="#" title="Change search">Change search</a></li>
+            </ul>
+            <!--//top right navigation-->
+        </nav>
+        <!--//breadcrumbs-->
+        
+        <div class="row">
+            <!--three-fourth content-->
+            <div class="three-fourth">
+                <div class="static-content booking d-flex flex-direction-column">
+                    <h2><span>03 </span>Submit Your Book</h2>
+                    {% if user.is_authenticated %}
+                    <div style="padding-bottom:10px;width:400px">
+                        <form method="get" action="{% url 'book_checkout' flight_offer_id %}">
+                            <label for="promo_code">Promotion Code</label>
+                            <div class="row">
+                                <div class="f-item one-half">
+                                    <input type="text" id="promo_code" name="promo_code" value="{{coupon_code}}" />
+                                </div>
+                                <div class="f-item one-half">
+                                    <input type="submit" value="Apply" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    {% endif %}
+                    <div>
+                        <h4>Travelers</h4>
+                        {% for traveler in travelers %}
+                        <div class="text-wrap" style="border-bottom: 1px solid #ccc; padding-bottom: 0px;margin-bottom: 20px;">
+                            <div class="output">
+                                <p>First name</p>
+                                <p>{{traveler.first_name}}</p>
+                                <p>Last name: </p>
+                                <p>{{traveler.last_name}}</p>
+                                {% if traveler.middle_name %}
+                                <p>Middle name</p>
+                                <p>{{traveler.middle_name}}</p>
+                                {% endif %}
+                                <p>Date of Birth: </p>
+                                <p>{{traveler.date_of_birth}}</p>
+                                <p>Gender: </p>
+                                <p>{{traveler.gender}}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div>
+                        <div class="full-width">
+                            <input type="button" class="gradient-button" id="checkout-button" value="Submit booking" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--//three-fourth content-->
+            
+            <!--right sidebar-->
+            <aside class="one-fourth right-sidebar">
+                <!--Booking details-->
+                <article class="hotel-details booking-details">
+                    <h1>{{offer.origin}} - {{offer.destination}}
+                        <!-- <span class="stars">
+                            <i class="material-icons">&#xE838;</i>
+                            <i class="material-icons">&#xE838;</i>
+                            <i class="material-icons">&#xE838;</i>
+                        </span> -->
+                    </h1>
+                    <!-- <span class="address">Marylebone, London</span>
+                    <span class="rating"> 8 /10</span> -->
+                    <div class="flight-itineraries">
+                        {% for it in offer.itineraries %}
+                        {% include 'air/components/flight_itineraries.html' %}
+                        {% endfor %}
+                    </div>
+                        
+                    <div class="price">
+                        {% if discount %}
+                        <p><b>Total price: {{offer.currency}} {{offer.price}}</b></p>
+                        <p><b>Discount: {{discount.value}} {% if discount.is_percentage %}%{% else %}{{offer.currency}}{% endif %} included</b></p>
+                        {% endif %}
+                        <p class="total">Total Price:  {{offer.currency}} {{discounted_value}}</p>
+
+                    </div>
+                </article>
+                <!--//Booking details-->
+                
+                <!--Need Help Booking?-->
+                <article class="widget">
+                    <h4>Need Help Booking?</h4>
+                    <p>Call our customer services team on the number below to speak to one of our advisors who will help you with all of your holiday needs.</p>
+                    <p class="number">+44 033 3303 4716</p>
+                </article>
+                <!--//Need Help Booking?-->
+            </aside>
+            <!--//right sidebar-->
+        </div>
+        <!--//main content-->
+    </div>
+</main>
+
+{% endblock %}
+
+{% block inline_javascript %}
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript">
+    // Create an instance of the Stripe object with your publishable API key
+    var stripe = Stripe('{{ stripe_publishable_key }}');
+    var checkoutButton = document.getElementById('checkout-button');
+
+    checkoutButton.addEventListener('click', function () {
+        var promo_code = $('#promo_code').val();
+        // Create a new Checkout Session using the server-side endpoint you
+        // created in step 3.
+        fetch("{% url 'flight_create_checkout' flight_offer_id %}?promo_code="+promo_code, {
+            method: 'POST',
+        })
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (session) {
+                return stripe.redirectToCheckout({ sessionId: session.sessionId });
+            })
+            .then(function (result) {
+                // If `redirectToCheckout` fails due to a browser or network
+                // error, you should display the localized error message to your
+                // customer using `error.message`.
+                if (result.error) {
+                    alert(result.error.message);
+                }
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+                $.toast({
+                    heading: "Error response",
+                    text: error,
+                    icon: "error"
+                })
+            });
+    });
+</script>
+{% endblock inline_javascript %}

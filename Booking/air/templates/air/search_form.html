@@ -1,0 +1,327 @@
+<!--form flight One Way -->
+<div class="form row" id="form3">
+    <!--column-->
+    <div class="column one-third">
+        <h5><span>02</span> Where?</h5>
+        <div class="row">
+            <div class="f-item full-width">
+                <label for="{{search_form.originLocationCode.id_for_label}}">Leaving from</label>
+                <div class="airport-search">
+                    {{ search_form.originLocationCode }}
+                </div>
+            </div>
+            <div class="f-item full-width">
+                <label for="{{search_form.destinationLocationCode.id_for_label}}">Going to</label>
+                <div class="airport-search">
+                    {{ search_form.destinationLocationCode }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//column-->
+    
+    <!--column-->
+    <div class="column one-third">
+        <h5><span>03</span> When?</h5>
+        <div class="row">
+            <div class="f-item full-width datepicker">
+                <label for="{{ search_form.departureDate.id_for_label }}">Departing on</label>
+                <div class="row">
+                    <div class="f-item full-width">
+                        <div class="datepicker-wrap">{{ search_form.departureDate }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//column-->
+
+    <!--column-->
+    <div class="column one-third">
+        <h5><span>04</span> Who?</h5>
+        <div class="row">
+            <div class="f-item full-width">
+                <div class="row">
+                    <div class="f-item one-third">
+                        <label for="spinner6">Adults</label>
+                        {{ search_form.adults }}
+                    </div>
+                    <div class="f-item one-third">
+                        <label for="spinner7">Children</label>
+                        {{ search_form.children }}
+                    </div>
+                    <div class="f-item one-third">
+                        <label for="spinner8">Infants</label>
+                        {{ search_form.infants }}
+                    </div>
+                </div>
+            </div>
+            <div class="f-item full-width">
+                <label for="{{ search_form.travelClass.id_for_label }}">{{ search_form.travelClass.label }}</label>
+                <div class="row">
+                    <div class="f-item full-width">
+                        {{ search_form.travelClass }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//column-->
+</div>	
+<!--//form flight-->
+
+<!--form flight Round Way -->
+<div class="form row" id="form5">
+    <!--column-->
+    <div class="column one-third">
+        <h5><span>02</span> Where?</h5>
+        <div class="row">
+            <div class="f-item full-width">
+                <label for="id_originLocationCode_0">Leaving from</label>
+                <div class="airport-search">
+                    <input type="text" name="originLocationCode_0" 
+                    placeholder="City, region, district or specific airport" 
+                    maxlength="50" required="" id="id_originLocationCode_0"/>
+                </div>
+            </div>
+            <div class="f-item full-width">
+                <label for="id_destinationLocationCode_0">Going to</label>
+                <div class="airport-search">
+                    <input type="text" 
+                    name="destinationLocationCode_0" 
+                    placeholder="City, region, district or specific airport" 
+                    maxlength="50" required="" 
+                    id="id_destinationLocationCode_0" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//column-->
+    
+    <!--column-->
+    <div class="column one-third">
+        <h5><span>03</span> When?</h5>
+        <div class="row">
+            <div class="f-item full-width datepicker">
+                <label for="id_departureDate_0">Departing on</label>
+                <div class="row">
+                    <div class="f-item full-width">
+                        <div class="datepicker-wrap">
+                            <input type="text" name="departureDate_0" required="" id="id_departureDate_0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="f-item full-width datepicker">
+                <label for="id_returnDate_0">Returning on</label>
+                <div class="row">
+                    <div class="f-item full-width">
+                        <div class="datepicker-wrap">
+                            <input type="text" name="returnDate_0" required="" id="id_returnDate_0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//column-->
+
+    <!--column-->
+    <div class="column one-third">
+        <h5><span>04</span> Who?</h5>
+        <div class="row">
+            <div class="f-item full-width">
+                <div class="row">
+                    <div class="f-item one-third">
+                        <label for="id_adults_0">Adults</label>
+                        <input type="number" name="adults_0" value="1" required="" id="id_adults_0" class="uniform-input number">
+                    </div>
+                    <div class="f-item one-third">
+                        <label for="id_children_0">Children</label>
+                        <input type="number" name="children_0" value="0" id="id_children_0" class="uniform-input number">
+                    </div>
+                    <div class="f-item one-third">
+                        <label for="id_infants_0">Infants</label>
+                        <input type="number" name="infants_0" value="0" id="id_infants_0" class="uniform-input number">
+                    </div>
+                </div>
+            </div>
+            <div class="f-item full-width">
+                <label for="id_travelClass_0">{{ search_form.travelClass.label }}</label>
+                <div class="row">
+                    <div class="f-item full-width">
+                        <select name="travelClass_0" id="id_travelClass_0">
+                            <option value="" selected="">None</option>
+                            <option value="ECONOMY">Economy</option>
+                            <option value="PREMIUM_ECONOMY">Premium Economy</option>
+                            <option value="BUSINESS">Business</option>
+                            <option value="FIRST">First</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//column-->
+</div>	
+<!--//form flight-->
+
+<!--form flight Multi City-->
+<div class="form row multi-city" id="form4">
+    <!--column-->
+    <div class="column one-third" id="form4_where">
+        <h5><span>02</span> Where?</h5>
+        <div class="row" data-index="1">
+                <div class="f-item full-width">
+                    <label for="id_originLocationCode_1">Leaving from</label>
+                    <div class="airport-search">
+                        <input type="text" name="originLocationCode_1" 
+                        placeholder="City, region, district or specific airport" 
+                        maxlength="50" required="" id="id_originLocationCode_1"/>
+                    </div>
+                </div>
+                <div class="f-item full-width">
+                    <label for="id_destinationLocationCode_1">Going to</label>
+                    <div class="airport-search">
+                        <input type="text" 
+                        name="destinationLocationCode_1" 
+                        placeholder="City, region, district or specific airport" 
+                        maxlength="50" required="" 
+                        id="id_destinationLocationCode_1" />
+                    </div>
+                </div>
+        </div>
+        <div class="row" data-index="2">
+            <div class="f-item full-width">
+                <label for="id_originLocationCode_2">Leaving from</label>
+                <div class="airport-search">
+                    <input type="text" name="originLocationCode_2" 
+                    placeholder="City, region, district or specific airport" 
+                    maxlength="50" required="" id="id_originLocationCode_2" />
+                </div>
+            </div>
+            <div class="f-item full-width">
+                <label for="id_destinationLocationCode_2">Going to</label>
+                <div class="airport-search">
+                    <input type="text" 
+                    name="destinationLocationCode_2" 
+                    placeholder="City, region, district or specific airport" 
+                    maxlength="50" required="" 
+                    id="id_destinationLocationCode_2" >
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="column one-third" id="form4_when">
+        <h5><span>03</span> When?</h5>
+        <div class="row">
+            <div class="f-item full-width datepicker">
+                <label for="id_departureDate_1">Departing on</label>
+                <div class="row">
+                    <div class="f-item full-width">
+                        <div class="datepicker-wrap">
+                            <input type="text" name="departureDate_1" required="" id="id_departureDate_1">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="f-item full-width datepicker">
+                <label for="id_departureDate_2">Departing on</label>
+                <div class="row">
+                    <div class="f-item full-width">
+                        <div class="datepicker-wrap">
+                            <input type="text" name="departureDate_2" required="" id="id_departureDate_2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//column-->
+
+    <!--column-->
+    <div class="column one-third" id="form4_who">
+        <h5><span>04</span> Who?</h5>
+        <div class="row">
+            <div class="f-item full-width">
+                <div class="row">
+                    <div class="f-item one-third">
+                        <label for="id_adults_n">Adults</label>
+                        <input type="number" name="adults_n" value="1" required="" id="id_adults_n" class="uniform-input number">
+                    </div>
+                    <div class="f-item one-third">
+                        <label for="id_children_n">Children</label>
+                        <input type="number" name="children_n" value="0" id="id_children_n" class="uniform-input number">
+                    </div>
+                    <div class="f-item one-third">
+                        <label for="id_infants_n">Infants</label>
+                        <input type="number" name="infants_n" value="0" id="id_infants_n" class="uniform-input number">
+                    </div>
+                </div>
+            </div>
+            <div class="f-item full-width">
+                <label for="id_travelClass_n">{{ search_form.travelClass.label }}</label>
+                <div class="row">
+                    <div class="f-item full-width">
+                        <select name="travelClass_n" id="id_travelClass_n">
+                            <option value="" selected="">None</option>
+                            <option value="ECONOMY">Economy</option>
+                            <option value="PREMIUM_ECONOMY">Premium Economy</option>
+                            <option value="BUSINESS">Business</option>
+                            <option value="FIRST">First</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="f-item full-width form-action" id="form_action_2">
+                <input type="button" value="Add Another City" onclick="window.bookyourtravel.add_city(this)" />
+            </div>
+        </div>
+    </div>
+    <!--//column-->
+</div>	
+<!--//form flight-->
+
+<!-- form My trips -->
+<div class="form row" id="form6">
+    <div class="column one-half">
+        <h5><span>02</span> Booking Reference?</h5>
+        <div class="row">
+            <div class="full-width">
+                <label for="">Order ID</label>
+                <div>
+                    <input type="text" 
+                    name="order_id" 
+                    id="order_id"
+                    placeholder="" 
+                    maxlength="50" 
+                    required="" 
+                    id="" >
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column one-half">
+        <h5><span>02</span> Last Name?</h5>
+        <div class="row">
+            <div class="full-width">
+                <label for="">Your Last Name</label>
+                <div>
+                    <input type="text" 
+                    name="last_name" 
+                    id="last_name" 
+                    placeholder="" 
+                    maxlength="50" 
+                    required="" 
+                    id="" >
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

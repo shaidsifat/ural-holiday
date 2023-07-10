@@ -1,0 +1,209 @@
+{% extends "layouts/base.html" %}
+
+{% block header %}
+    {% include "layouts/header.html" %}
+{% endblock header %}
+
+{% block content %}
+<main class="main">		
+    <div class="wrap">
+        <!--breadcrumbs-->
+        <nav class="breadcrumbs">
+            <!--crumbs-->
+            <ul>
+                <li><a href="{% url 'home_page' %}" title="Home">Home</a></li>
+                <li><a href="{% url 'my_account' %}" title="My Account">My Account</a></li>                                    
+            </ul>
+            <!--//crumbs-->
+        </nav>
+        <!--//breadcrumbs-->
+
+        <div class="row">
+            <!--three-fourth content-->
+            <section class="three-fourth">
+            
+                <h1>My account</h1>
+                
+                <!--inner navigation-->
+                <nav class="inner-nav">
+                    <ul>
+                        <li><a href="#MyBookings" title="My Bookings">My Bookings</a></li>
+                        <li><a href="#MySettings" title="Settings">Settings</a></li>
+                    </ul>
+                </nav>
+                <!--//inner navigation-->
+                
+                <!--My Bookings-->
+                <section id="MyBookings" class="tab-content">
+                    <!--booking-->
+                    {% for book in books %}
+                    <article class="bookings">
+                        <!-- <h2><a href="#">Best ipsum hotel</a></h2> -->
+                        <div class="b-info">
+                            <table>
+                                <tr>
+                                    <th>Booking number</th>
+                                    <td>{{book.order_id}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Booking Reference ID</th>
+                                    <td>{{book.order_reference_id}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Amount</th>
+                                    <td>{{book.amount}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Paid</th>
+                                    <td>{{book.has_paid}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Created on</th>
+                                    <td>{{book.created_on}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Updated on</th>
+                                    <td>{{book.updated_on}}</td>
+                                </tr>                                
+                                <tr>
+                            </table>
+                            
+                        </div>
+                        
+                        <div class="actions">
+                            {% if book.submited %}
+                            <!-- <a href="#" class="gradient-button">Change booking</a>
+                            <a href="#" class="gradient-button">Cancel booking</a> -->
+                            <a href="{% url 'flight_payment_success' %}?order_id={{book.order_id}}" class="gradient-button">View confirmation</a>
+                            <!-- <a href="#" class="gradient-button">Print confirmation</a> -->
+                            {% else %}
+                            <!-- <a href="#" class="gradient-button">Change booking</a>
+                            <a href="#" class="gradient-button">Cancel booking</a> -->
+                                {% if book.has_paid %}
+                                <a href="{% url 'flight_payment_success' %}?order_id={{book.order_id}}" class="gradient-button">Submit Book</a>
+                                {% else %}
+                                <a href="{% url 'book_checkout' book.order_id %}" class="gradient-button">Checkout</a>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </article>
+                    {% endfor %}
+                    <!--//booking-->
+                </section>
+                <!--//My Bookings-->
+                
+                <!--MySettings-->
+                <section id="MySettings" class="tab-content">
+                    <article class="mysettings">
+                        <h2>Personal details</h2>
+                        <table>
+                            <tr>
+                                <th>First name:</th>
+                                <td>{{ user.first_name }}
+                                    <!--edit fields-->
+                                    <div class="edit_field" id="field1">
+                                        <form action="{% url 'update_profile' %}" method="post">
+                                            {% csrf_token %}
+                                            <label for="first_name">Your new name:</label>
+                                            <input type="text" name="first_name"/>
+                                            <input type="submit" value="save" class="gradient-button"/>
+                                            <a href="#">Cancel</a>
+                                        </form>
+                                    </div>
+                                    <!--//edit fields-->
+                                </td>
+                                <td><a href="#field1" class="gradient-button edit">Edit</a></td>
+                            </tr>
+                            <tr>
+                                <th>Last name:</th>
+                                <td>{{ user.last_name }}
+                                    <!--edit fields-->
+                                    <div class="edit_field" id="field2">
+                                        <form action="{% url 'update_profile' %}" method="post">
+                                            {% csrf_token %}
+                                            <label for="new_last_name">Your new name:</label>
+                                            <input type="text" name="last_name"/>
+                                            <input type="submit" value="save" class="gradient-button"/>
+                                            <a href="#">Cancel</a>
+                                        </form>
+                                    </div>
+                                    <!--//edit fields-->
+                                </td>
+                                <td><a href="#field2" class="gradient-button edit">Edit</a></td>
+                            </tr>
+                            <tr>
+                                <th>E-mail address: </th>
+                                <td>{{ user.email }}
+                                    <!--edit fields-->
+                                    <div class="edit_field" id="field3">
+                                        <form action="{% url 'update_profile' %}" method="post">
+                                            {% csrf_token %}
+                                            <label for="new_email">Your new email:</label>
+                                            <input type="text" name="email"/>
+                                            <input type="submit" value="save" class="gradient-button" />
+                                            <a href="#">Cancel</a>
+                                        </form>
+                                    </div>
+                                    <!--//edit fields-->
+                                </td>
+                                <td><a href="#field3" class="gradient-button edit">Edit</a></td>
+                            </tr>
+                            <tr>
+                                <th>Password: </th>
+                                <td>
+                                    <!--edit fields-->
+                                    <div class="edit_field" id="field4">
+                                        <form action="{% url 'change_password' %}" method="post">
+                                            {% csrf_token %}
+                                            <label for="new_password">Your old password:</label>
+                                            <input type="password" name="old_password"/>
+                                            <label for="new_password">Your new password:</label>
+                                            <input type="password" name="new_password1"/>
+                                            <label for="new_password">Your confirm password:</label>
+                                            <input type="password" name="new_password2"/>
+                                            <input type="submit" value="save" class="gradient-button" id="submit4"/>
+                                            <a href="#">Cancel</a>
+                                        </form>
+                                    </div>
+                                    <!--//edit fields-->
+                                </td>
+                                <td><a href="#field4" class="gradient-button edit">Edit</a></td>
+                            </tr>
+                        </table>
+
+                    </article>
+                </section>
+                <!--//MySettings-->
+                
+            </section>
+            <!--//three-fourth content-->
+            
+            <!--sidebar-->
+            <aside class="one-fourth right-sidebar">
+                <!--Need Help Booking?-->
+                <article class="widget">
+                    <h4>Need Help Booking?</h4>
+                    <p>Call our customer services team on the number below to speak to one of our advisors who will help you with all of your holiday needs.</p>
+                    <p class="number">+44 033 3303 4716</p>
+                </article>
+                <!--//Need Help Booking?-->
+                
+                <!--Why Book with us?-->
+                <article class="widget">
+                    <h4>Why Book with us?</h4>
+                    <h5>Low rates</h5>
+                    <p>Get the best rates, or get a refund.<br>No booking fees. Save money!</p>
+                    <h5>Largest Selection</h5>
+                    <p>140,000+ hotels worldwide<br>130+ airlines<br>Over 3 million guest reviews</p>
+                    <h5>We’re Always Here</h5>
+                    <p>Call or email us, anytime<br>Get 24-hour support before, during, and after your trip</p>
+                </article>
+                <!--//Why Book with us?-->
+                
+            </aside>
+            <!--//sidebar-->
+        </div>
+        <!--//main content-->
+    </div>
+</main>
+{% endblock %}

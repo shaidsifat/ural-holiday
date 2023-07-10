@@ -1,0 +1,64 @@
+{% load static %}
+<form method="post" action="/air/flights" class="one-way-form">
+  <div class="banner-form">
+    {% csrf_token %}
+    {{ form.sort_by }}
+    <div class="input-group select-airports">
+      <a class="swap-icon"><img src="{% static 'images/swap-icon.png' %}" alt=""></a>
+      {{ form.departure_at }}
+      {{ form.arrival_at }}
+    </div>
+    <div class="flex-input">
+      <div class="banner-form-trip">
+        <span>Trip</span>
+        {{ form.trip_type }}
+      </div>
+      <div class="banner-form-datepicker-area-duo">
+        <div class="left">
+          <span>Depart</span>
+          {{ form.departure_date }}
+        </div>
+        <div class="md">-</div>
+        <div class="right">
+          <span>Return</span>
+          {{ form.return_date }}
+        </div>
+      </div>
+      <div class="banner-form-Passengers_class-area">
+        <span>Passenger / Class</span>
+        <input
+            type="text"
+            id="id_passenger_class"
+            class="banner-form-Passengers_class-input"
+            value="1 Passenger, Economy"
+        >
+        <div class="passenger-class-panel">
+          <div>Passengers</div>
+          <div class="passenger-class-field"><span>Adults(12+ years)</span>{{ form.adults }}</div>
+          <div class="passenger-class-field"><span>Child(2-11 years)</span>{{ form.child }}</div>
+          <div class="passenger-class-field"><span>Infant(Under 2 years)</span>{{ form.infant }}</div>
+          <div>Class</div>
+          <div>{{ form.flight_class }}</div>
+          <div class="confirm-button" id="confirm-passenger-class">
+            Confirm
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="promotion">
+    <div class="promo">
+      <a onclick="promoDetector()" id="promo_button">+ Add promo code</a>
+      <div class="form-floating promo-container">
+        <input type="text" name='promo_code' class="form-control" id="promo" placeholder="Enter promo code">
+        <label for="promo">Enter promo code</label>
+      </div>
+
+    </div>
+    <div class="form-button">
+      <button href="#" type="submit">
+        Search flights <img src="{% static 'images/buttonflight.png' %}" alt="">
+      </button>
+    </div>
+  </div>
+</form>

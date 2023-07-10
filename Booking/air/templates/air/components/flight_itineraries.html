@@ -1,0 +1,59 @@
+<div class="f-wrap d-flex flex-direction-column justify-content-center align-items-center">
+    <div class="d-flex">
+        <div class="flex-1 d-flex justify-content-center align-items-center">
+            <img src={{ it.seg_first.airlineLogo }} alt={{ it.seg_first.airline }}>
+        </div>
+        <div class="flex-3 d-flex justify-content-center align-items-center flight-info">
+            <div>
+                <small>{{ it.seg_first.departureHour }}</small>
+                <strong>{{ it.seg_first.departureAirport }} </strong>
+                <small>{{ it.seg_first.departureDate }}</small>
+            </div>
+            <div class="arrow-mark">
+                <small>{{ it.totalDuration }}</small>
+                <a href="#">&#10230</a> 
+                <small>{{ it.numberOfStops }} Stops</small>
+            </div>
+            <div>
+                <small>{{ it.seg_last.arrivalHour }}</small>
+                <strong>{{ it.seg_last.arrivalAirport }}</strong>
+                <small>{{ it.seg_last.arrivalDate }}</small>
+            </div> 
+            
+        </div>
+    </div>
+    <div class="segment-details">
+        <div class="collapse-div">
+            <div class="collapse-header" >Full Itinerary</div>
+            <div class="collapse-content">
+                <div class="d-flex flex-direction-column">
+                    {% for seg in it.segments %}
+                    <div class="d-flex segment-wrap">
+                        <div class="flex-1 d-flex justify-content-center align-items-center">
+                            <img src={{ seg.airlineLogo }} alt={{ seg.airline }}>
+                        </div>
+                        <div class="flex-3 d-flex justify-content-center align-items-center flight-info">
+                            <div>
+                                <small>{{ seg.departureHour }}</small>
+                                <strong>{{ seg.departureAirport }} </strong>
+                                <small>{{ seg.departureDate }}</small>
+                            </div>
+                            <div class="arrow-mark">
+                                <small>{{ seg.arrivalDuration }}</small>
+                                <a href="#">&#10230</a>
+                                <small>{{ seg.stop_time }}</small>
+                            </div>
+                            <div>
+                                <small>{{ seg.arrivalHour }}</small>
+                                <strong>{{ seg.arrivalAirport }}</strong>
+                                <small>{{ seg.arrivalDate }}</small>
+                            </div> 
+                            
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

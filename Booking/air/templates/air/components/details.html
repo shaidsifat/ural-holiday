@@ -1,0 +1,138 @@
+{% load custom_func %}
+
+<article class="full-width">
+    <div class="d-flex details">
+        {% for itinerary in offer.itineraries %}
+            <div class="flight-item">
+                <div class="summary-line">
+                    <div class="airline-info">
+                        <img src={{ itinerary.seg_first.airlineLogo }} alt={{ itinerary.seg_first.airline }} />
+                        <div>
+                            <span>{{ itinerary.seg_first.airline_name }}</span>
+                        </div>
+                    </div>
+                    <div class="segment-info">
+                        <div class="text-left">
+                            <span class="hour">{{ itinerary.seg_first.departureHour }}</span>
+                            <span class="airport">{{ itinerary.seg_first.departureAirport }}</span>
+                        </div>
+                        <div class="total-steps">
+                            <span>{{ itinerary.numberOfStops }} stop{{ itinerary.numberOfStops|pluralize }}</span>
+                            <span class="arrow-pointer"></span>
+                            <span>{{ itinerary.lines|slice:"1:-1"|join:", " }}</span>
+                        </div>
+                        <div class="text-left">
+                            <span class="hour">{{ itinerary.seg_last.arrivalHour }}</span>
+                            <span>{{ itinerary.seg_last.arrivalAirport }}</span>
+                        </div>
+                        <div class="total-duration">
+                            <span>{{ itinerary.totalDuration }}</span>
+                        </div>
+                    </div>
+                    <div class="price-info">
+                        <div>
+                            <span>{{ offer.currency }}</span>
+                            <span>{{ offer.price }}</span>
+                        </div>
+                        <a href="{% url 'book_review' offer.flight|base64_encode %}" class="select-button">
+                            Select
+                        </a>
+                    </div>
+                </div>
+                <div class="detailed-line">
+                    <div class="bottom-links">
+                        <div class="show-more-left">
+                            Partially Refundable
+                        </div>
+                        <div class="show-more">
+                            Flight Details
+                        </div>
+                    </div>
+                    <div class="misc">
+                        <div class="segments">
+                            <h4>Flight Details</h4>
+                            <div class="dep-to-arr-airport">
+                                <span>{{ itinerary.lines|first }}</span>
+                                <span> - </span>
+                                <span>{{ itinerary.lines|last }}</span>
+                            </div>
+
+                            {% for stop in itinerary.segments %}
+                                <div class="stop">
+                                    <div class="company">
+                                        <img src="{{ stop.airlineLogo }}" alt="{{ stop.airline }}" />
+                                        <div class="airline-name">
+                                            <span>{{ stop.airline_name }}</span>
+                                            <span></span>
+                                        </div>
+                                        <div>({{ stop.cabin|capfirst }})</div>
+                                    </div>
+                                    <div class="time-info">
+                                        <div class="departure">
+                                            <span>{{ stop.departureAt|date:"H:i" }}</span>
+                                            <span>{{ stop.departureAt|date:"D, d M," }}</span>
+                                            <span>{{ stop.departureAt|date:"Y" }}</span>
+                                            <span>{{ stop.departureAirport }}</span>
+                                        </div>
+                                        <div class="duration">
+                                            <span class="arrow-pointer"></span>
+                                            <span>{{ stop.arrivalDuration }}</span>
+                                        </div>
+                                        <div class="arrival">
+                                            <span>{{ stop.arrivalAt|date:"H:i" }}</span>
+                                            <span>{{ stop.arrivalAt|date:"D, d M," }}</span>
+                                            <span>{{ stop.arrivalAt|date:"Y" }}</span>
+                                            <span>{{ stop.arrivalAirport }}</span>
+                                        </div>
+                                    </div>
+                                    {% if stop.stop_time %}
+                                        <div class="layover">
+                                            Change plane at
+                                            <span>
+                                                {{ stop.arrivalAirport }} | {{ stop.stop_time }} layover
+                                            <span>
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="baggage-fare-policy" id="baggage-fare-policy-{{ itinerary.seg_first.id }}-{{ itinerary.seg_last.id }}">
+                            <ul>
+                                <li><a href="#baggage-{{ itinerary.seg_first.id }}-{{ itinerary.seg_last.id }}">Baggage</a></li>
+                                <li><a href="#fare-{{ itinerary.seg_first.id }}-{{ itinerary.seg_last.id }}">Fare</a></li>
+                            </ul>
+                            <div class="baggage-table" id="baggage-{{ itinerary.seg_first.id }}-{{ itinerary.seg_last.id }}">
+                                <div class="title">
+                                    <span>Flight</span>
+                                    <span>Cabin</span>
+                                    <span>Checked Bags</span>
+                                </div>
+                                {% for stop in itinerary.segments %}
+                                    <div class="content-line">
+                                        <span>{{ stop.departureAirport }} - {{ stop.arrivalAirport }}</span>
+                                        <span>{{ stop.cabin }}</span>
+                                        <span>{{ stop.includedCheckedBags }}</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <div class="fare-table" id="fare-{{ itinerary.seg_first.id }}-{{ itinerary.seg_last.id }}">
+                                <div class="title">
+                                    <span>Fare Summary</span>
+                                    <span>Total</span>
+                                    <span>Base</span>
+                                </div>
+                                {% for price_item in itinerary.prices %}
+                                    <div class="content-line">
+                                        <span>{{ price_item.travelerType }}</span>
+                                        <span>{{ price_item.total }}</span>
+                                        <span>{{ price_item.base }}</span>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</article>

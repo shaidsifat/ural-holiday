@@ -1,0 +1,22 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+<main class="main">
+  <div class="centering-wrap d-flex justify-content-center">
+    <div class="signup-form">
+      <header class="s-title">
+        <h2>Verify your account</h2>
+      </header>
+      <form method="post">
+        {% csrf_token %}
+        <div class="f-item full-width">
+          <label for="{{ form.code.id_for_label }}">{{ form.code.label }}</label>
+          {{ form.code }}
+          {{ form.code.errors }}
+        </div>
+        <button type="submit">Verify</button>
+      </form>
+    </div>
+  </div>
+</main>
+{% endblock content %}

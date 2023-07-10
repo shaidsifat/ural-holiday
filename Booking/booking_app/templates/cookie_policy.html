@@ -1,0 +1,69 @@
+{% extends "layouts/base-new.html" %}
+
+{% load static %}
+{% load custom_func %}
+
+{% block style %}
+<link href="{% static 'css/flights.css' %}" rel="stylesheet" />
+{% endblock style %}
+
+{% block header %}
+    {% include 'layouts/header.html' %}
+{% endblock header %}
+
+{% block content %}
+  <main class="main">
+    <div class="wrap">
+      <!--breadcrumbs-->
+      <nav class="breadcrumbs">
+        <!--crumbs-->
+        <ul>
+          <li><a href="{% url 'home_page' %}" title="Home">Home</a></li>
+          <li>Cookie Policy</li>
+        </ul>
+        <!--//crumbs-->
+      </nav>
+      <!--//breadcrumbs-->
+
+      <div class="row">
+        <!--three-fourth content-->
+        <div class="full-width">
+          <article class="static-content post">
+            <div name="termly-embed" data-id="dcee9bcd-7eb2-46d0-a7d7-64e95bfd6a29" data-type="iframe"></div>
+            <script type="text/javascript">
+                (function (d, s, id) {
+                    let js, tjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://app.termly.io/embed-policy.min.js";
+                    tjs.parentNode.insertBefore(js, tjs);
+                }(document, 'script', 'termly-jssdk'));
+            </script>
+          </article>
+          <div class="bottom-nav">
+            <!--back up button-->
+            <a href="#" class="scroll-to-top" title="Back up">Back up</a>
+            <!--//back up button-->
+          </div>
+        </div>
+        <!--three-fourth content-->
+      </div>
+      <div class="row">
+        <div class="full-width">
+          <div style="display: flex; justify-content: center; align-content: center;">
+            <button
+                class="termly-cookie-preference-button"
+                type="button"
+                onclick="displayPreferenceModal()"
+            >
+              Manage Cookies Preferences
+            </button>
+          </div>
+
+        </div>
+      </div>
+      <!--//main content-->
+    </div>
+  </main>
+{% endblock %}

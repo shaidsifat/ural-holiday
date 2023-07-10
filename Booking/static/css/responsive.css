@@ -1,0 +1,345 @@
+/*  RESPONSIVE CSS   */
+
+@media (max-width: 1199px) {
+  .header-right {
+    position: absolute;
+    right:55px;
+    top: 7px;
+  }
+
+  .navbar-collapse {
+    background: #5C0632;
+    padding-left: 10px;
+  }
+
+  .blogs-content-above-inner-second span {
+    font-size: 14px;
+    line-height: 46px;
+  }
+
+  .blogs-content-above-inner-second p {
+    font-size: 14px;
+  }
+
+  .blogs-content-above-inner-second h4 {
+    font-size: 16px;
+  }
+
+  .wraper-subscribe {
+    background-size: 100%;
+  }
+
+  .subs-main {
+    max-width: 40%;
+  }
+
+  .footer-brand img {
+    width: 78px;
+  }
+
+  .navbar-toggler-icon img {
+    width: 25px;
+  }
+
+  button.navbar-toggler {
+    padding-right: 0;
+    position: absolute;
+    right: 12px;
+    top: 19px;
+}
+
+.header-right .search {
+    display: none;
+}
+
+}
+
+@media (max-width: 991px) {
+  .blogs-fare-section,
+  .blogs-fare-section-bottom {
+    flex-wrap: wrap;
+  }
+
+  .blogs-inner-section {
+    width: 1000%;
+  }
+
+  .blogs-inner-section-content img,
+  .inner-blog-section-content img,
+  .blogs-fare-section-bottom .blogs-inner-section-content img {
+    height: auto;
+  }
+
+  .blogs-fare-section-bottom .blogs-inner-section {
+    margin: 0 0 43px 0;
+  }
+
+  .btn-view-more a {
+    margin: 0;
+  }
+
+  .place-box-big {
+    margin-bottom: 15px;
+  }
+
+  .subs-main {
+    max-width: 54%;
+  }
+
+  .footer-nav,
+  .footertour {
+    margin: 20px 0;
+    display: inline-block;
+  }
+
+  .navbar-toggler-icon img {
+    width: 20px;
+    top: 5px;
+    position: relative;
+  }
+
+  button.navbar-toggler {
+    padding-right: 0;
+  }
+
+  .header-right {
+    gap: 10px;
+  }  
+}
+
+@media (max-width: 767px) {
+
+  .home-banner-text h1 {
+    font-size: 30px;
+    padding-bottom: 22px;
+  }
+
+  .home-banner-text p {
+    font-size: 15px;
+    line-height: 23px;
+  }
+
+  .home-banner-area {
+    /* height: 443px; */
+    height: 350px;
+  }
+
+  .banner-form,
+  .promotion,
+  .saftey-services,
+  .blogs-inner-section .inner-blogs-section {
+    flex-wrap: wrap;
+  }
+
+  .tab button p {
+    padding-top: 28px;
+  }
+
+  .tab button p:before {
+    position: absolute;
+    top: 0;
+    z-index: 9;
+    left: 0;
+    right: 0;
+    width: 30px;
+    height: 26px;
+    margin: auto;
+  }
+
+  .banner-input-form,
+  .travel-saftey-content p,
+  .saftey-services-box,
+  .find-fares,
+  .blogs-content-above-inner,
+  .inner-blog-section-content {
+    width: 100% !important;
+  }
+
+  .travel-saftey-content h1,
+  .blogs-great-fare-heading h1,
+  .wrappery-banner-text h1,
+  .title-place h2,
+  .subs-main h2 {
+    font-size: 25px;
+  }
+
+  .saftey-services {
+    gap: 0;
+  }
+
+  .blogs-inner-section-content-above-img {
+    flex-wrap: wrap;
+    padding: 20px;
+    margin-top: -48px;
+    position: relative;
+  }
+
+  .blogs-button,
+  .btn-view-more {
+    margin: 0;
+  }
+
+  .blogs-button a {
+    display: inline-block;
+  }
+
+  .blogs-fare-section,
+  .blogs-fare-section-bottom,
+  .blogs-inner-section .inner-blogs-section {
+    gap: 0;
+  }
+
+  .wrappery-banner-text {
+    padding: 20px 20px 30px;
+  }
+
+  .wrappery-banner-text p {
+    font-size: 14px;
+    line-height: 26px;
+    margin-bottom: 29px;
+  }
+
+  .wrappery-banner-area {
+    height: 320px;
+  }
+
+  .title-place p {
+    font-size: 14px;
+  }
+
+  .content-place-together h4 {
+    font-size: 18px;
+    max-height: 55px;
+  }
+
+  .content-place-list {
+    width: 65%;
+    padding: 10px;
+  }
+
+  .place-box-list img {
+    height: 170px;
+  }
+
+  .travel-saftey-content h1 {
+    line-height: 36px;
+    padding-top: 15px;
+  }
+
+  .travel-saftey-content p {
+    font-size: 14px;
+    line-height: 25px;
+    padding-top: 15px;
+  }
+
+  .wraper-subscribe {
+    padding: 70% 0 30px;
+    background: linear-gradient(180deg, #0000 16%, #5C0632 37%),
+    url(../images/girl.jpg) no-repeat 0px top/ 100%;
+  }
+
+  .subs-main {
+    max-width: 100%;
+  }
+
+  .footer-nav, .footertour {
+    margin: 7px 0;
+  }
+
+  .wraper-section .nav-tabs li.nav-item {
+    width: 100%;
+  }
+
+  .wraper-section .nav-link {
+    margin: auto;
+  }
+
+  .wraper-section .nav-tabs {
+    gap: 10px;
+  }
+
+  .banner-form .input-group, .banner-form .flex-input {
+    width: 100% !important;
+  }
+
+  .flex-input .banner-input-form {
+    width: 33.333% !important;
+  }
+
+  .flex-input .banner-input-form:nth-child(4) {
+    width: 100% !important;
+  }
+
+  .flex-input {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-toggler-icon img {
+    width: 25px;
+  }
+
+  .navbar-brand {
+    width: 100px;
+  }
+
+  .header-area .nav-link {
+    font-size: 14px;
+  }
+
+  .header-area .nav-link.active {
+    color: #fff;
+    font-size: 16px;
+  }
+
+  .navbar-brand img {
+    width: 100%;
+  }
+
+  .tab-section-home {
+    margin-top: -55px;
+  }
+
+  .tab-section-home .container {
+    padding: 0;
+  }
+
+  .tab {
+    border-radius: 0;
+  }
+
+  .tab button {
+    padding: 8px 10px;
+
+    font-size: 15px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tab button span:before {
+    margin-right: 0;
+  }
+
+  .tab button:nth-child(1) p:before {
+    background-size: 24px;
+    background-position-x: center;
+    padding: 0;
+  }
+
+  .tab button:nth-child(2) p:before {
+    background-size: 18px;
+    background-position-x: center;
+    padding: 0;
+  }
+
+  .tab button:nth-child(3) p:before {
+    background-size: 16px;
+    background-position-x: center;
+    padding: 0;
+  }
+}

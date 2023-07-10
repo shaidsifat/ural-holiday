@@ -1,0 +1,59 @@
+{% load static %}
+
+<div class="header-banner-area">
+    <div class="general-header-area">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container">
+                <a class="navbar-brand" href="/">
+                    <img src="{% static 'images/LOGOlogo.png' %}"/>
+                </a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav"
+                    aria-controls="navbarNav"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-toggler-icon">
+                        <img src="{% static 'images/i13.png' %}"/>
+                    </span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="index.html">
+                                Flights
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">My booking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Experience</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Explore</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Flights status</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="header-right">
+                    <div class="search">
+                        <p>Help</p>
+                    </div>
+                    <div class="country">
+                        <p>EN</p>
+                    </div>
+                    <div class="register">
+                        <p>Login | Sign up</p>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+</div>
